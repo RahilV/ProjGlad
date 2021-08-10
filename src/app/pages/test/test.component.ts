@@ -13,6 +13,8 @@ export class TestComponent implements OnInit {
     {productId:101,productName:"TEST ITEM 1"},
     {productId:102,productName:"TEST ITEM 2"},
     {productId:103,productName:"TEST ITEM 3"},
+    {productId:103,productName:"TEST ITEM 3"},
+    {productId:103,productName:"TEST ITEM 3"}
   ];
   constructor() { }
 
