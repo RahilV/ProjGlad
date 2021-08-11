@@ -1,0 +1,23 @@
+
+<h3 class="p-3 text-center">List of All Emi Cards</h3>
+<div class="container">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Limit</th>     
+                <th>Validity</th>                
+            </tr>
+        </thead>
+        <tbody>
+              <tr *ngFor="let ec of emiCardList;">              
+                <td> {{ec.cardNo}} </td>
+                <td> {{ec.cardTypeName}} </td>
+                <td> {{ec.cardLimit}} </td>                        
+                <td> {{ec.validity}} </td>                        
+           
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -15,6 +15,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { TestComponent } from './pages/test/test.component';
+import { EmiCardListComponent } from './Pages/EmiCard/emi-card-list/emi-card-list.component';
+import { EmiCardByNoComponent } from './Pages/EmiCard/emi-card-by-no/emi-card-by-no.component';
+import { CreateEmiCardComponent } from './Pages/EmiCard/create-emi-card/create-emi-card.component';
 
 
 @NgModule({
@@ -33,7 +36,10 @@ import { TestComponent } from './pages/test/test.component';
     LoginComponent,
     RegisterComponent,
     UserProfileComponent,
-    TestComponent
+    TestComponent,
+    EmiCardListComponent,
+    EmiCardByNoComponent,
+    CreateEmiCardComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

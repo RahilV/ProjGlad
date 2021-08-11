@@ -1,0 +1,40 @@
+<body class="p-3 text-center">
+    <h3>Create Emi Card</h3>
+    <div  style= "align-content:center;" >
+    <div [hidden]="submitted" style="width: 400px; margin:auto">
+        <form (ngSubmit)="onSubmit()">
+      
+
+<!--
+                <div class="form-group">
+                <label for="name">Card Name</label>
+                <input type="text" class="form-control" id="cardTypeName" required [(ngModel)]="emiCard.cardTypeName" name="cardTypeName">
+            </div>
+    -->
+            <div class="form-group">
+                <input type="radio" id="cardTypeName" required [(ngModel)]="emiCard.cardTypeName" name="cardTypeName" value="Gold" checked>
+                <label for="Gold">Gold</label>
+                <span style="padding: 20px;"></span>                
+                <input type="radio" id="cardTypeName" required [(ngModel)]="emiCard.cardTypeName" name="cardTypeName" value="Titanium">
+                <label for="Titanium">Titanium</label>
+                <script>console.log(document.getElementById(cardTypeName).value)</script>
+            </div>  
+
+            <div class="form-group">
+                <label for="name">Card Limit </label>
+                <input type="text" class="form-control" id="cardLimit" required [(ngModel)]="emiCard.cardLimit" name="cardLimit">
+            </div>   
+            
+            <div class="form-group">
+                <label for="name">Validity</label>
+                <input type="date" class="form-control" id="validity" required [(ngModel)]="emiCard.validity" name="validity">
+            </div>
+                   <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+    
+    <div [hidden]="!submitted">
+           <h5>You submitted successfully!</h5>
+    </div>
+    </div>
+    </body>
