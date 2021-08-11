@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TestService } from 'src/app/Services/test.service';
 import { Products } from './test';
 
 @Component({
@@ -8,17 +9,18 @@ import { Products } from './test';
 })
 export class TestComponent implements OnInit {
 
-  prdList:Products[] =
-  [
-    {productId:101,productName:"TEST ITEM 1"},
-    {productId:102,productName:"TEST ITEM 2"},
-    {productId:103,productName:"TEST ITEM 3"},
-    {productId:103,productName:"TEST ITEM 3"},
-    {productId:103,productName:"TEST ITEM 3"}
-  ];
-  constructor() { }
+  prdList:Products[];
+  constructor(private testService: TestService) { }
 
   ngOnInit(): void {
+    this.loadData();
   }
+  loadData() {
+    this.testService.getAllProducts().subscribe(data => 
+      {
+        this.prdList = data;
+      }
+    )
 
+}
 }
