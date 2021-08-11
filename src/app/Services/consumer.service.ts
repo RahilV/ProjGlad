@@ -12,6 +12,6 @@ export class ConsumerService {
 
   public createConsumer(consumer :Consumer){
     console.log("CREATE EMP");
-    return this.http.post(this.base_url+'consumers/',consumer);
+    return this.http.post(this.base_url+'consumers',consumer);
   }
 }

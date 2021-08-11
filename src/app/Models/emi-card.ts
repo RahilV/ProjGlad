@@ -1,5 +1,5 @@
 export class EmiCard {
-    cardNo:number;
+    //cardNo:number;
     cardName:String;
     cardValidity:Date;
     cardLimit:number;

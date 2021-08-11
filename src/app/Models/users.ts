@@ -2,7 +2,7 @@ import { UserTypes } from "./user-types";
 
 export class Users {
 
-    userId:number;
+    //userId:number;
     userType:UserTypes;
     userName:String;
     userEmail:String;
