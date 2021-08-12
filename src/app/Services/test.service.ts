@@ -13,8 +13,8 @@ export class TestService {
     return this.http.get<any[]>(this.baseUrl + "/products");
   }
   getProductById(productId: number) {
-    console.log(this.http.get<any>(this.baseUrl + '/products/' + productId));
-    return this.http.get<any>(this.baseUrl + '/products/' + productId);
+    console.log(this.http.get<any>(this.baseUrl + '/product/' + productId));
+    return this.http.get<any>(this.baseUrl + '/product/' + productId);
   }
   public addProduct(product: Object): Observable<Object> {
     console.log(this.http.post(this.baseUrl+ '/addnewproduct', product))

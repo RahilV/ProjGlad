@@ -11,23 +11,20 @@ import { Products } from '../test/test';
 export class ProductDetailsComponent implements OnInit {
 
 
-  public prdObj:Products= new Products();
+  prdObj:Products;
   
   productId:any;
   constructor(private testService: TestService, private routing: ActivatedRoute) { 
-    this.productId=this.routing.snapshot.paramMap.get("productId");
+    this.productId=this.routing.snapshot.paramMap.get("id");
   }
 
   ngOnInit(): void {
     this.loadData();
   }
   loadData(){
-    this.testService.getProductById(this.productId).subscribe(
-      (data:any)=>
-      {
+    this.testService.getProductById(this.productId).subscribe((data:any)=>{
         this.prdObj=data;
-      }
-    )
+      });
   }
 
 }

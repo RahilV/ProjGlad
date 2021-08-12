@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EmiCard } from '../Pages/EmiCard';
+import { EmiCard } from '../pages/EmiCard/EmiCard';
 
 @Injectable({
   providedIn: 'root'

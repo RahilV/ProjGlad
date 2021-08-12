@@ -25,7 +25,7 @@ const routes: Routes =[
   { path: 'emiCardByNo', component: EmiCardByNoComponent },
   { path: 'createEmiCard', component: CreateEmiCardComponent },
   { path: 'userProducts', component: UserProductsComponent },
-  { path: 'test/:productId', component: ProductDetailsComponent },
+  { path: 'test/:id', component: ProductDetailsComponent },
 
 
   {

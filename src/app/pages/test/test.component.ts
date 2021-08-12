@@ -22,13 +22,8 @@ export class TestComponent implements OnInit {
     this.loadData();
   }
   loadData() {
-    this.testService.getAllProducts().subscribe(data => 
-      {
+    this.testService.getAllProducts().subscribe(data => {
         this.prdList = data;
-      }
-    )
-
-}
-
-
+    });
+  }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmiCardService } from 'src/app/Services/emi-card.service';
-import { EmiCard } from '../../EmiCard';
+import { EmiCard } from '../EmiCard';
 
 @Component({
   selector: 'app-emi-card-list',
