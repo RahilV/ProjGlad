@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { UserProductsService } from 'src/app/Services/user-products.service';
 import { UserProducts } from './UserProducts';
 
@@ -10,17 +11,22 @@ import { UserProducts } from './UserProducts';
 export class UserProductsComponent implements OnInit {
 
   userPrdList:UserProducts[];
-  constructor(private userProductService: UserProductsService) { }
+  prdId:any;
+  constructor(private userProductService: UserProductsService,private routing:ActivatedRoute) { 
+this.prdId=this.routing.snapshot.paramMap.get('id');
+  }
 
   ngOnInit(): void {
     this.loadData();
   }
   loadData() {
-    this.userProductService.getAllUserProducts().subscribe(data => 
+    this.userProductService.getProductById(this.prdId).subscribe(data => 
       {
         this.userPrdList = data;
       }
     )
+
+
 
 }
 
