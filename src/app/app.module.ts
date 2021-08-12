@@ -44,7 +44,7 @@ import { ProductDetailsComponent } from './Pages/product-details/product-details
     EmiCardByNoComponent,
     CreateEmiCardComponent,
     UserProductsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
