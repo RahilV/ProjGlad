@@ -11,6 +11,8 @@ import { TestComponent } from './pages/test/test.component';
 import { EmiCardListComponent } from './Pages/EmiCard/emi-card-list/emi-card-list.component';
 import { CreateEmiCardComponent } from './Pages/EmiCard/create-emi-card/create-emi-card.component';
 import { EmiCardByNoComponent } from './Pages/EmiCard/emi-card-by-no/emi-card-by-no.component';
+import { UserProductsComponent } from './Pages/user-products/user-products.component';
+import { ProductDetailsComponent } from './Pages/product-details/product-details.component';
 
 const routes: Routes =[
   { path: '',      component: DashboardComponent },
@@ -22,6 +24,8 @@ const routes: Routes =[
   { path: 'emiCardList', component: EmiCardListComponent },
   { path: 'emiCardByNo', component: EmiCardByNoComponent },
   { path: 'createEmiCard', component: CreateEmiCardComponent },
+  { path: 'userProducts', component: UserProductsComponent },
+  { path: 'test/:productId', component: ProductDetailsComponent },
 
 
   {

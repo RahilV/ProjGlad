@@ -18,6 +18,8 @@ import { TestComponent } from './pages/test/test.component';
 import { EmiCardListComponent } from './Pages/EmiCard/emi-card-list/emi-card-list.component';
 import { EmiCardByNoComponent } from './Pages/EmiCard/emi-card-by-no/emi-card-by-no.component';
 import { CreateEmiCardComponent } from './Pages/EmiCard/create-emi-card/create-emi-card.component';
+import { UserProductsComponent } from './Pages/user-products/user-products.component';
+import { ProductDetailsComponent } from './Pages/product-details/product-details.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { CreateEmiCardComponent } from './Pages/EmiCard/create-emi-card/create-e
     TestComponent,
     EmiCardListComponent,
     EmiCardByNoComponent,
-    CreateEmiCardComponent
+    CreateEmiCardComponent,
+    UserProductsComponent,
+    ProductDetailsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

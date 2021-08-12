@@ -16,16 +16,16 @@
 
     <div class="container-fluid" style="margin-top: 3%;">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-          <div class="col mb-4" *ngFor="let item of prdList">
+          <div class="col mb-4" *ngFor="let item of userPrdList">
             <div class="card bg-secondary shadow">
               <div class="card-header bg-white border-0 d-flex align-items-center">
                 <img src="assets/img/theme/team-4-800x800.jpg" class="rounded-circle" height="100px" width="auto">
               </div>
               <div class="card-body">
-                <h3>{{item.productId}}</h3>
-                <h3>{{item.productName}}</h3>
-                <button [routerLink]="['/test',item.productId]" routerLinkActive="router-link-active">VIEW</button>
-              </div>
+                <h3>{{item.productPurchasedId}}</h3>
+                <h3>{{item.userId}}</h3>
+                <h3>{{item.emiDuration}}</h3>
+            </div>
             </div>
           </div>
         </div>
