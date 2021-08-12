@@ -1,0 +1,57 @@
+<app-sidebar></app-sidebar>
+<div class="main-content">
+<!-- Top navbar -->
+<app-navbar></app-navbar>
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="height: 150px; background-size: cover; background-position: center top;">
+    <!-- Mask -->
+    <span class="mask opacity-8" style="background-color:#20bf55;background-image:linear-gradient(315deg, #20bf55 0%, #01baef 74%);"></span>
+    <!-- Header container -->
+        <div class="container-fluid align-items-center">
+            <div class="row mt-3">
+                <div class="col-lg-7 col-md-10 mt-6">
+                <h1 class="display-2 text-white">Hello, {{admin}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="margin-top: 3%;">
+        <div class="row">
+          <div class="col mb-4">
+            <div class="card bg-secondary shadow">
+              <div class="card-header bg-white border-0 d-flex align-items-center">
+                <h3>Consumers List</h3>
+              </div>
+              <div class="card-body">
+                <table class="table table-responsive table-striped table-bordered">
+                    <thead class="thead-dark">
+                        <th>USER ID</th>
+                        <th>CONSUMER NAME</th>
+                        <th>PHONE NUMBER</th>
+                        <th>ADDRESS</th>
+                        <th>CARD NUMBER</th>
+                        <th>CARD TYPE</th>
+                        <th>SAVINGS ACCOUNT NUMBER</th>
+                        <th>IFSC CODE</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let consumer of consumerList">
+                            <td>{{consumer.user.userId}}</td>
+                            <td>{{consumer.fName}} {{consumer.lName}}</td>
+                            <td> {{consumer.phoneNo}} </td>
+                            <td> {{consumer.address}} </td>
+                            <td> {{consumer.cardNo.cardNo}} </td>
+                            <td> {{consumer.cardNo.cardTypeName}} </td>
+                            <td> {{consumer.savingAccNo}} </td>
+                            <td> {{consumer.ifscCode}} </td>
+                        </tr>
+                    </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+<div class="container-fluid">
+    <app-footer></app-footer>
+  </div>
+</div>

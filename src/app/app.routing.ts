@@ -13,10 +13,11 @@ import { CreateEmiCardComponent } from './Pages/EmiCard/create-emi-card/create-e
 import { EmiCardByNoComponent } from './Pages/EmiCard/emi-card-by-no/emi-card-by-no.component';
 import { UserProductsComponent } from './Pages/user-products/user-products.component';
 import { ProductDetailsComponent } from './Pages/product-details/product-details.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 const routes: Routes =[
   { path: '',      component: DashboardComponent },
-  { path: 'dashboard',      component: DashboardComponent },
+  { path: 'consumer',      component: DashboardComponent },
   { path: 'user-profile',   component: UserProfileComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -26,12 +27,8 @@ const routes: Routes =[
   { path: 'createEmiCard', component: CreateEmiCardComponent },
   { path: 'userProducts', component: UserProductsComponent },
   { path: 'test/:id', component: ProductDetailsComponent },
-
-
-  {
-    path: '**',
-    //redirectTo: 'dashboard'
-  }
+  { path: 'admin',component: AdminComponent},
+  { path: '**'}
 ];
 
 @NgModule({
