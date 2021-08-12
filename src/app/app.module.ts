@@ -20,6 +20,7 @@ import { EmiCardByNoComponent } from './Pages/EmiCard/emi-card-by-no/emi-card-by
 import { CreateEmiCardComponent } from './Pages/EmiCard/create-emi-card/create-emi-card.component';
 import { UserProductsComponent } from './Pages/user-products/user-products.component';
 import { ProductDetailsComponent } from './Pages/product-details/product-details.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { ProductDetailsComponent } from './Pages/product-details/product-details
     EmiCardByNoComponent,
     CreateEmiCardComponent,
     UserProductsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    AdminComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

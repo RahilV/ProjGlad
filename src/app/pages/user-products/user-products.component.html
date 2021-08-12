@@ -15,7 +15,7 @@
       </div>
 
     <div class="container-fluid" style="margin-top: 3%;">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-2">
           <div class="col mb-4" *ngFor="let item of userPrdList">
             <div class="card bg-secondary shadow">
               <div class="card-header bg-white border-0 d-flex align-items-center">
@@ -25,6 +25,7 @@
                 <h3>{{item.productPurchasedId}}</h3>
                 <h3>{{item.userId}}</h3>
                 <h3>{{item.emiDuration}}</h3>
+                <button class="btn btn-success float-right">View</button>
             </div>
             </div>
           </div>

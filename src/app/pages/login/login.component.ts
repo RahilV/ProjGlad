@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Users } from 'src/app/Models/users';
 import { LoginService } from 'src/app/Services/login.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   addForm: FormGroup;
   submitted: boolean = false;
   user;
-  userId;
+  userId:number;
+  userEntry;
   constructor(private formBuilder: FormBuilder, private router: Router, private loginService: LoginService) {}
   ngOnDestroy(){
    
@@ -37,9 +39,27 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
     console.log(this.user);
     this.loginService.loginUser(this.user).subscribe(data =>{
-      this.userId = data;
-      sessionStorage.setItem('userId',this.userId);
+      this.userId = Number(data.toString());
+      console.log(this.userId);
+      
+      //console.log("USER ID IS = ",this.userId);
+      this.userEntry = this.loginService.getUserById(this.userId).subscribe(data =>{
+        this.userEntry = data;
+        console.log(this.userEntry);
+        sessionStorage.setItem('userType',this.userEntry.userType.userTypeId);
+      });
+      
+      sessionStorage.setItem('userId',this.userId.toString());
       sessionStorage.setItem('userName',this.addForm.value.username);
     });
+    
+    const userType = sessionStorage.getItem('userType');
+    if(userType == '1')
+    {
+      this.router.navigate(['admin']);
+    }
+    else{
+      this.router.navigate(['consumer'])
+    }
   }
 }
