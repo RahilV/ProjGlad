@@ -46,7 +46,7 @@ import { AdminComponent } from './pages/admin/admin.component';
     CreateEmiCardComponent,
     UserProductsComponent,
     ProductDetailsComponent,
-
+    AdminComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
