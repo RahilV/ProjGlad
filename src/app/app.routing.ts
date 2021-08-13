@@ -15,9 +15,11 @@ import { UserProductsComponent } from './Pages/user-products/user-products.compo
 import { ProductDetailsComponent } from './Pages/product-details/product-details.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { UserProductDetailsComponent } from './pages/user-product-details/user-product-details.component';
+import { LogoutComponent } from './pages/logout/logout.component';
 
 const routes: Routes =[
   { path: '',      component: DashboardComponent },
+  { path: 'dashboard',      component: DashboardComponent },
   { path: 'consumer',      component: DashboardComponent },
   { path: 'user-profile',   component: UserProfileComponent },
   { path: 'login', component: LoginComponent },
@@ -30,6 +32,7 @@ const routes: Routes =[
   { path: 'test/:id', component: ProductDetailsComponent },
   { path: 'admin',component: AdminComponent},
   { path: 'userProducts/:id',component:UserProductDetailsComponent},
+  { path: 'logout',component:LogoutComponent },
   { path: '**'}
 ];
 

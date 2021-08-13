@@ -22,6 +22,7 @@ import { UserProductsComponent } from './Pages/user-products/user-products.compo
 import { ProductDetailsComponent } from './Pages/product-details/product-details.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { UserProductDetailsComponent } from './pages/user-product-details/user-product-details.component';
+import { LogoutComponent } from './pages/logout/logout.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { UserProductDetailsComponent } from './pages/user-product-details/user-p
     UserProductsComponent,
     ProductDetailsComponent,
     AdminComponent,
-    UserProductDetailsComponent
+    UserProductDetailsComponent,
+    LogoutComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

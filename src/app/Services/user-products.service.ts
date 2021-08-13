@@ -9,11 +9,11 @@ import { ProductsPurchased } from '../pages/product-details/ProductsPurchased';
 export class UserProductsService {
   private baseUrl = "http://localhost:8090/api/v1"
   constructor(private http: HttpClient) { }
-  getAllUserProducts() {
-    console.log(this.http.get<any[]>(this.baseUrl + '/productsPurchased'));
-    return this.http.get<any[]>(this.baseUrl + "/productsPurchased");
+  public getAllUserProducts(userId:number) {
+    console.log(this.http.get<ProductsPurchased[]>(this.baseUrl + '/userProducts/' + userId));
+    return this.http.get<ProductsPurchased[]>(this.baseUrl + "/userProducts/" + userId);
   }
-  getPrdById(productPurchasedId: number) {
+  public getPrdById(productPurchasedId: number) {
     console.log(this.http.get<ProductsPurchased>(this.baseUrl + '/productsPurchased/' + productPurchasedId));
     return this.http.get<ProductsPurchased>(this.baseUrl + '/productsPurchased/' + productPurchasedId);
   }

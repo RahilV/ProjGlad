@@ -13,7 +13,12 @@ export const ROUTES: RouteInfo[] = [
     { path: '/login', title: 'Login',  icon:'ni-key-25 text-info', class: '' },
     { path: '/register', title: 'Register',  icon:'ni-circle-08 text-pink', class: '' },
     { path: '/test', title: 'Test',  icon:'ni-circle-08 text-pink', class: '' },
-    { path: '/userProducts', title: 'User Prodcuts',  icon:'ni-circle-08 text-pink', class: '' }
+    { path: '/userProducts', title: 'User Prodcuts',  icon:'ni-circle-08 text-pink', class: '' },
+    { path: '/logout', title: 'Logout',  icon:'ni-circle-08 text-pink', class: '' }
+];
+export const adminRoutes: RouteInfo[] = [
+    { path: '/dashboard', title: 'Consumers List',  icon: 'ni-circle-08 text-pink', class: '' },
+    { path: '/logout', title: 'Logout',  icon:'ni-circle-08 text-pink', class: '' }
 ];
 
 @Component({
@@ -29,9 +34,19 @@ export class SidebarComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
-    this.router.events.subscribe((event) => {
-      this.isCollapsed = true;
-   });
+    if(sessionStorage.getItem('userType') == "1")
+    {
+      this.menuItems = adminRoutes.filter(menuItem => menuItem);
+      this.router.events.subscribe((event) => {
+        this.isCollapsed = true;
+      });
+    }
+    else {
+      this.menuItems = ROUTES.filter(menuItem => menuItem);
+      this.router.events.subscribe((event) => {
+        this.isCollapsed = true;
+      });
+    }
+    
   }
 }

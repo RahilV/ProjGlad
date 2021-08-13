@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Consumer } from 'src/app/Models/consumer';
 import { AdminService } from 'src/app/Services/admin.service';
 
@@ -11,11 +12,18 @@ export class AdminComponent implements OnInit {
 
   consumerList:Consumer[];
   admin;
-  constructor(private adminService:AdminService) { }
+  constructor(private adminService:AdminService,private router:Router) { }
 
   ngOnInit(): void {
-    this.loadData();
-    this.admin = sessionStorage.getItem('userName');
+    if(sessionStorage.getItem('userType') == "1")
+    {
+      this.router.navigate(['admin']);
+      this.loadData();
+      this.admin = sessionStorage.getItem('userName');
+    }
+    else{
+      this.router.navigate(['consumer'])
+    }
   }
   loadData() {
     this.adminService.getAllConsumers().subscribe(data => {

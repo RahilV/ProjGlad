@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import Chart from 'chart.js';
 
 // core components
@@ -22,8 +23,16 @@ export class DashboardComponent implements OnInit {
   public clicked: boolean = true;
   public clicked1: boolean = false;
 
-  ngOnInit() {
+  constructor(private router:Router) {}
 
+  ngOnInit() {
+    if(sessionStorage.getItem('userType') == "1")
+    {
+      this.router.navigate(['admin']);
+    }
+    else{
+      this.router.navigate(['consumer'])
+    }
     this.datasets = [
       [0, 20, 10, 30, 15, 40, 20, 60, 60],
       [0, 20, 5, 25, 10, 30, 15, 40, 40]
