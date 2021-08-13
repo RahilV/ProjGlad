@@ -49,23 +49,25 @@ export class ProductDetailsComponent implements OnInit {
         "userId": sessionStorage.getItem('userId'),
         "productId": {
             "productId":this.productId ,
-            "productName": "Earphones",
-            "productDetails": "Boat",
-            "price": 2000,
-            "image": "mno.jpg",
-            "eligibilityCriteria": "Product Eligible"
+            "productName": this.prdObj.productName,
+            "productDetails": this.prdObj.productDetails,
+            "price": this.prdObj.price,
+            "image": this.prdObj.image,
+            "eligibilityCriteria": this.prdObj.eligibilityCriteria
         },
         "emiDuration":this.payForm.value.emi_duration,
-        "amountBillable": 10002,
-        "amountPayed": 3000,
-        "transactionId": 10000003
+        "amountBillable": this.prdObj.price,
+        "amountPayed": 5000,
+        "transactionId": 10000013
     }
     console.log(this.newBill);
-    this.productPurchased.buyProduct(this.newBill).subscribe(data =>{
-      this.newBill = data;
-    });
-    this.pp = new ProductsPurchased();
+    this.productPurchased.buyProduct(this.newBill).subscribe(data =>{ this.newBill = data; });
+  }
 
+showAlert(){
+    if (confirm("Are you sure?")) {
+    this.onSubmit();
+    }
   }
 
 
