@@ -3,4 +3,6 @@ export class Products {
     productName:string="";
     price:number=0;
     productDetails:string="";
+    image:string;
+    eligibilityCriteria:string;
 }

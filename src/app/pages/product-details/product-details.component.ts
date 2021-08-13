@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Products } from 'src/app/Models/products';
 import { ProductDetailsService } from 'src/app/Services/product-details.service';
 import { TestService } from 'src/app/Services/test.service';
-import { Products } from '../test/test';
 import { ProductsPurchased } from './ProductsPurchased';
 
 @Component({
