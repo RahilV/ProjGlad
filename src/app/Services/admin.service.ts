@@ -12,7 +12,6 @@ export class AdminService {
 
   public getAllConsumers()
   {
-    
     return this.http.get<Consumer[]>(this.base_url+'consumers');
   }
 }

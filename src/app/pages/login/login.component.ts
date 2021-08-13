@@ -47,19 +47,18 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.userEntry = data;
         console.log(this.userEntry);
         sessionStorage.setItem('userType',this.userEntry.userType.userTypeId);
+        console.log("USER TYPE : ",sessionStorage.getItem('userType'));
+        if(sessionStorage.getItem('userType') == "1")
+        {
+          this.router.navigate(['admin']);
+        }
+        else{
+          this.router.navigate(['consumer'])
+        }
       });
-      
       sessionStorage.setItem('userId',this.userId.toString());
       sessionStorage.setItem('userName',this.addForm.value.username);
     });
     
-    const userType = sessionStorage.getItem('userType');
-    if(userType == '1')
-    {
-      this.router.navigate(['admin']);
-    }
-    else{
-      this.router.navigate(['consumer'])
-    }
   }
 }

@@ -12,14 +12,18 @@ export class UserProductsComponent implements OnInit {
 
   userPrdList:any;
   prdId:any;
-  constructor(private userProductService: UserProductsService) { }
+  userId:number;
+  constructor(private userProductService: UserProductsService) {
+    this.userId = Number(sessionStorage.getItem('userId'));
+  }
 
   ngOnInit(): void {
     this.loadData();
   }
   loadData() {
-    this.userProductService.getAllUserProducts().subscribe(data => {
+    this.userProductService.getAllUserProducts(this.userId).subscribe(data => {
         this.userPrdList = data;
+        console.log(this.userPrdList);
     });
   }
 }
