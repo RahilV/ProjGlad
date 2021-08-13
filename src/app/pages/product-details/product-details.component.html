@@ -23,8 +23,8 @@
               </div>
                 <div class="card-body">
                   <h3>Product ID: {{prdObj.productId}}</h3>
-                  <h3>Details: {{prdObj.productDetails}}</h3>
-                  <h3>Amount Billable: <span >{{prdObj.price}}</span></h3>
+                  <h3>Details: <span class="text-center">{{prdObj.productDetails}}</span></h3>
+                  <h3>Amount Billable: <span ><span>&#8377;</span>{{prdObj.price}}</span></h3>
 
                   <form [formGroup]="payForm" >
                     <div class="form-group">
@@ -37,7 +37,7 @@
                         </select>
                       </div>
                     </div>
-                    <h3>Emi Starting From: <span >{{prdObj.price}}</span></h3>
+                    <h3>Emi Starting From: <span ><span>&#8377;</span>{{prdObj.price}}</span></h3>
 
                     <div class="text-center">
                       <button class="btn btn-primary my-4" (click)="showAlert()">Pay Now</button>

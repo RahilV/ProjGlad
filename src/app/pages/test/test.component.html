@@ -19,12 +19,12 @@
           <div class="col mb-4" *ngFor="let item of prdList">
             <div class="card bg-secondary shadow">
               <div class="card-header bg-white border-0 d-flex align-items-center">
-                <img src="{{item.image}}"  height="100px" width="auto">
+                <img style="margin:auto" src="{{item.image}}"  height="100px" width="auto">
               </div>
-              <div class="card-body">
-                <h3>{{item.productId}}</h3>
+              <div class="card-body text-center">
                 <h3>{{item.productName}}</h3>
-                <button class="btn btn-primary my-4" [routerLink]="['/test',item.productId]" routerLinkActive="router-link-active">BUY PRODUCT</button>
+                <h3><span>&#8377;</span>{{item.price}}</h3>
+                <button class="btn btn-primary my-4 text-center" [routerLink]="['/test',item.productId]" routerLinkActive="router-link-active">BUY PRODUCT</button>
               </div>
             </div>
           </div>
