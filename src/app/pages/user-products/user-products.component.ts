@@ -10,24 +10,16 @@ import { UserProducts } from './UserProducts';
 })
 export class UserProductsComponent implements OnInit {
 
-  userPrdList:UserProducts[];
+  userPrdList:any;
   prdId:any;
-  constructor(private userProductService: UserProductsService,private routing:ActivatedRoute) { 
-this.prdId=this.routing.snapshot.paramMap.get('id');
-  }
+  constructor(private userProductService: UserProductsService) { }
 
   ngOnInit(): void {
     this.loadData();
   }
   loadData() {
-    this.userProductService.getProductById(this.prdId).subscribe(data => 
-      {
+    this.userProductService.getAllUserProducts().subscribe(data => {
         this.userPrdList = data;
-      }
-    )
-
-
-
-}
-
+    });
+  }
 }

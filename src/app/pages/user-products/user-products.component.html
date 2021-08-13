@@ -24,7 +24,7 @@
                 <h3>{{item.productPurchasedId}}</h3>
                 <h3>{{item.userId}}</h3>
                 <h3>{{item.emiDuration}}</h3>
-                <button class="btn btn-success float-right" (click)="onSubmit()">View</button>
+                <button class="btn btn-success float-right" [routerLink]="['/userProducts',item.productPurchasedId]" routerLinkActive="router-link-active">View</button>
             </div>
             </div>
           </div>
