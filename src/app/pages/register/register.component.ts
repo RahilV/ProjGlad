@@ -38,13 +38,13 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  
 
   onSubmit() {
     console.log("SUBMIT");
     if (this.addForm.invalid) {
       return;
     }
+
     if(this.addForm.value.cardType === "Gold")
     {
       this.today.setFullYear(this.today.getFullYear() + 5);

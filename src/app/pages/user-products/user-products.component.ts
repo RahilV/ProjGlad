@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { UserProductsService } from 'src/app/Services/user-products.service';
 import { UserProducts } from './UserProducts';
 
@@ -9,19 +10,16 @@ import { UserProducts } from './UserProducts';
 })
 export class UserProductsComponent implements OnInit {
 
-  userPrdList:UserProducts[];
+  userPrdList:any;
+  prdId:any;
   constructor(private userProductService: UserProductsService) { }
 
   ngOnInit(): void {
     this.loadData();
   }
   loadData() {
-    this.userProductService.getAllUserProducts().subscribe(data => 
-      {
+    this.userProductService.getAllUserProducts().subscribe(data => {
         this.userPrdList = data;
-      }
-    )
-
-}
-
+    });
+  }
 }

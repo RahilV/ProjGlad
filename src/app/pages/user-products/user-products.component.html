@@ -13,7 +13,6 @@
           </div>
         </div>
       </div>
-
     <div class="container-fluid" style="margin-top: 3%;">
         <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-2">
           <div class="col mb-4" *ngFor="let item of userPrdList">
@@ -25,7 +24,7 @@
                 <h3>{{item.productPurchasedId}}</h3>
                 <h3>{{item.userId}}</h3>
                 <h3>{{item.emiDuration}}</h3>
-                <button class="btn btn-success float-right">View</button>
+                <button class="btn btn-success float-right" [routerLink]="['/userProducts',item.productPurchasedId]" routerLinkActive="router-link-active">View</button>
             </div>
             </div>
           </div>

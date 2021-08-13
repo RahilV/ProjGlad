@@ -21,6 +21,7 @@ import { CreateEmiCardComponent } from './Pages/EmiCard/create-emi-card/create-e
 import { UserProductsComponent } from './Pages/user-products/user-products.component';
 import { ProductDetailsComponent } from './Pages/product-details/product-details.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { UserProductDetailsComponent } from './pages/user-product-details/user-product-details.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { AdminComponent } from './pages/admin/admin.component';
     CreateEmiCardComponent,
     UserProductsComponent,
     ProductDetailsComponent,
-    AdminComponent
+    AdminComponent,
+    UserProductDetailsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
