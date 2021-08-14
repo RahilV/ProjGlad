@@ -78,13 +78,13 @@ export class RegisterComponent implements OnInit {
         },
         "savingAccNo": this.addForm.value.savingsAccountNumber,
         "ifscCode": this.addForm.value.ifscCode,
-        "isValidated": "N",
+        "isValidated": 'N',
         "balance": this.addForm.value.balance
       };
 
       console.log(this.newConsumerJSON);
       this.consumerService.createConsumer(this.newConsumerJSON).subscribe(data => {
-        this.router.navigate(['']);
+        this.router.navigate(['/login']);
       });
   }
   

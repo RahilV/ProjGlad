@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   user;
   userId:number;
   userEntry;
+  error:String;
   constructor(private formBuilder: FormBuilder, private router: Router, private loginService: LoginService) {}
   ngOnDestroy(){
    
@@ -43,22 +44,29 @@ export class LoginComponent implements OnInit, OnDestroy {
       console.log(this.userId);
       
       //console.log("USER ID IS = ",this.userId);
-      this.userEntry = this.loginService.getUserById(this.userId).subscribe(data =>{
-        this.userEntry = data;
-        console.log(this.userEntry);
-        sessionStorage.setItem('userType',this.userEntry.userType.userTypeId);
-        console.log("USER TYPE : ",sessionStorage.getItem('userType'));
-        if(sessionStorage.getItem('userType') == "1")
-        {
-          this.router.navigate(['admin']);
-        }
-        else{
-          this.router.navigate(['consumer'])
-        }
-      });
+      this.userEntry = this.loginService.getUserById(this.userId).subscribe(
+        (data) =>{
+          this.userEntry = data;
+          console.log(this.userEntry);
+          sessionStorage.setItem('userType',this.userEntry.userType.userTypeId);
+          console.log("USER TYPE : ",sessionStorage.getItem('userType'));
+          if(sessionStorage.getItem('userType') == "1")
+          {
+            this.router.navigate(['admin']);
+          }
+          else{
+            this.router.navigate(['consumer'])
+          }
+        });
       sessionStorage.setItem('userId',this.userId.toString());
       sessionStorage.setItem('userName',this.addForm.value.username);
-    });
+    },
+      (error) =>
+      {
+        console.log(error.error.message);
+        this.error = error.error.message;
+      }
+    );
     
   }
 }

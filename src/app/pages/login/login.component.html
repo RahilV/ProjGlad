@@ -18,12 +18,23 @@
 <div class="container pb-5">
   <div class="row justify-content-center" >
     <div class="col-lg-5 col-md-7">
+
       <div class="card bg-secondary shadow border-0" style="margin-top: 50%;">
         <div class="card-body px-lg-5 py-lg-5">
           <div class="text-center mb-4">
             <img src="./assets/img/brand/logo1.png" alt="" height="80px" width="auto">
             <br><br>
           </div>
+
+          <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="error">
+            <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>
+            <span class="alert-inner--text"><strong>{{ error }}</strong></span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+        
+
           <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
             <div class="form-group mb-3 text-black-100">
               <div class="input-group input-group-alternative">
@@ -54,9 +65,7 @@
             </div>
           </div>
         </div>
-        
       </div>
-      
     </div>
   </div>
 </div>
