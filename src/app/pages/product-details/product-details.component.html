@@ -24,18 +24,18 @@
                   <div class="col-xl-7 col-md-12 col-sm-12 mb-3">
                     <h3>Product ID: {{prdObj.productId}}</h3>
                     <h3>Details: {{prdObj.productDetails}}</h3>
-                    <h3>Amount Billable: <span >{{prdObj.price}}</span></h3>
                     <form [formGroup]="payForm" >
                       <div class="form-group">
                         <div class="input-group input-group-alternative mb-3">
                           <span class="input-group-text"><i class="fa fa-university" aria-hidden="true"></i></span>
-                          <select class="form-control" name="emi_duration" id="emi_duration" formControlName="emi_duration" placeholder="Select EMI duration">
-                            <option value="3 Months" selected>3 Months</option>
-                            <option value="6 Months">6 Months</option>
-                            <option value="9 Months">9 Months</option>
+                          <select class="form-control" name="emiPeriod" id="emiPeriod" formControlName="emiPeriod" placeholder="Select EMI duration">
+                            <option value="3" selected>3 Months</option>
+                            <option value="6">6 Months</option>
+                            <option value="9">9 Months</option>
                           </select>
                         </div>
                       </div>
+                      <h3>Amount Billable: <span >{{prdObj.price}}</span></h3>
                       <h3>Emi Distribution:</h3><br>
                       <table class="table table-bordered" style="color:black;">
                           <thead>
