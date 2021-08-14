@@ -29,7 +29,7 @@ export class ProductDetailsComponent implements OnInit {
     this.loadData();
 
     this.payForm = this.formBuilder.group({
-      emi_duration: [''],      
+      emiPeriod: [''],      
     });
 
   }
@@ -55,17 +55,17 @@ export class ProductDetailsComponent implements OnInit {
             "image": this.prdObj.image,
             "eligibilityCriteria": this.prdObj.eligibilityCriteria
         },
-        "emiDuration":this.payForm.value.emi_duration,
         "amountBillable": this.prdObj.price,
-        "amountPayed": 5000,
-        "transactionId": 10000013
+        "amountPayed": this.prdObj.price/this.payForm.value.emiPeriod,
+        "transactionId": 10000023,
+        "emiPeriod":this.payForm.value.emiPeriod
     }
     console.log(this.newBill);
     this.productPurchased.buyProduct(this.newBill).subscribe(data =>{ this.newBill = data; });
   }
 
 showAlert(){
-    if (confirm("Are you sure?")) {
+    if (confirm("Are you sure? First EMi of"+this.prdObj.price/this.payForm.value.emiPeriod+" will be paid")) {
     this.onSubmit();
     }
   }
