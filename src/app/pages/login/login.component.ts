@@ -69,4 +69,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     );
     
   }
+
+  retry()
+  {
+    console.log("Retry");
+  }
 }

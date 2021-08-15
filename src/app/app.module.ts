@@ -24,6 +24,7 @@ import { UserProductDetailsComponent } from './pages/user-product-details/user-p
 import { LogoutComponent } from './pages/logout/logout.component';
 import { AddProductComponent } from './Pages/add-product/add-product.component';
 import { TestComponent } from './pages/test/test.component';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { TestComponent } from './pages/test/test.component';
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DataTablesModule
   ],
   declarations: [
     AppComponent,

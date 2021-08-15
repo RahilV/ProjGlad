@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import Chart from 'chart.js';
+  import { Router } from '@angular/router';
+  import Chart from 'chart.js';
+import { UserProductsService } from 'src/app/Services/user-products.service';
 
 // core components
 import {
@@ -22,48 +23,53 @@ export class DashboardComponent implements OnInit {
   public salesChart;
   public clicked: boolean = true;
   public clicked1: boolean = false;
+  /*
+    npm install jquery --save
+    npm install datatables.net --save
+    npm install datatables.net-dt --save
+    npm install angular-datatables --save
+    npm install @types/jquery --save-dev
+    npm install @types/datatables.net --save-dev
+  */
 
-  constructor(private router:Router) {}
+  userPrdList:any;
+  prdId:any;
+  userId:number;
+  dtOptions: DataTables.Settings = {};
+    
+  constructor(private router: Router,private userProductService: UserProductsService) {
+    this.userId = Number(sessionStorage.getItem('userId'));
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      processing: true
+    };
+  }
 
-  ngOnInit() {
-    if(sessionStorage.getItem('userType') == "1")
+  ngOnInit() 
+  {
+    if (sessionStorage.getItem('userType') == "1") 
     {
       this.router.navigate(['admin']);
     }
-    else{
+    else if (sessionStorage.getItem('userType') == "2") 
+    {
       this.router.navigate(['consumer'])
     }
-    this.datasets = [
-      [0, 20, 10, 30, 15, 40, 20, 60, 60],
-      [0, 20, 5, 25, 10, 30, 15, 40, 40]
-    ];
-    this.data = this.datasets[0];
+    else 
+    {
+      this.router.navigate(['login'])
+    }
 
-
-    var chartOrders = document.getElementById('chart-orders');
-
-    parseOptions(Chart, chartOptions());
-
-
-    var ordersChart = new Chart(chartOrders, {
-      type: 'bar',
-      options: chartExample2.options,
-      data: chartExample2.data
-    });
-
-    var chartSales = document.getElementById('chart-sales');
-
-    this.salesChart = new Chart(chartSales, {
-			type: 'line',
-			options: chartExample1.options,
-			data: chartExample1.data
-		});
+    this.loadData();
   }
 
-
-  public updateOptions() {
-    this.salesChart.data.datasets[0].data = this.data;
-    this.salesChart.update();
+  loadData()
+  {
+    this.userProductService.getAllUserProducts(this.userId).subscribe(data => {
+      this.userPrdList = data;
+      console.log(this.userPrdList);
+    });
   }
 
 }
