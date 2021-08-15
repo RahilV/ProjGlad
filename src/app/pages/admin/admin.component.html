@@ -32,6 +32,7 @@
                         <th>CARD TYPE</th>
                         <th>SAVINGS ACCOUNT NUMBER</th>
                         <th>IFSC CODE</th>
+                        <th>VIEW</th>
                     </thead>
                     <tbody>
                         <tr *ngFor="let consumer of consumerList">
@@ -43,6 +44,7 @@
                             <td> {{consumer.cardNo.cardTypeName}} </td>
                             <td> {{consumer.savingAccNo}} </td>
                             <td> {{consumer.ifscCode}} </td>
+                            <td><button class="btn btn-warning" (click)="validateConsumer(consumer.user.userId)">VALIDATE</button></td>
                         </tr>
                     </tbody>
                 </table>
