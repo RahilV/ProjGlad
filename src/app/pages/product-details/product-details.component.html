@@ -1,9 +1,7 @@
 <app-sidebar></app-sidebar>
 <div class="main-content">
     <app-navbar></app-navbar>
-    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="height: 150px; background-size: cover; background-position: center top;">
-        <!-- Mask -->
-        <span class="mask opacity-8" style="background-color:#20bf55;background-image:linear-gradient(315deg, #20bf55 0%, #01baef 74%);"></span>
+    <div class="header bg-gradient-danger pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="height: 150px; background-size: cover; background-position: center top;">
         <!-- Header container -->
         <div class="container-fluid align-items-center">
           <div class="row mt-3">
@@ -16,34 +14,62 @@
 
       <div class="container-fluid" style="margin-top: 3%;">
         <div class="row row-cols-1">
-          <div class="col mb-4">
-            <div class="card bg-secondary shadow">
-              <div class="card-header bg-white border-0 d-flex align-items-center">
-                <img src="{{prdObj.image}}"  height="100px" width="auto">
-              </div>
-                <div class="card-body">
-                  <h3>Product ID: {{prdObj.productId}}</h3>
-                  <h3>Details: {{prdObj.productDetails}}</h3>
-                  <h3>Amount Billable: <span >{{prdObj.price}}</span></h3>
-
-                  <form [formGroup]="payForm" >
-                    <div class="form-group">
-                      <div class="input-group input-group-alternative mb-3">
-                        <span class="input-group-text"><i class="fa fa-university" aria-hidden="true"></i></span>
-                        <select class="form-control" name="emi_duration" id="emi_duration" formControlName="emi_duration">
-                          <option value="3 Months" selected>3 Months</option>
-                          <option value="6 Months">6 Months</option>
-                          <option value="9 Months">9 Months</option>
-                        </select>
+          <div class="col">
+            <div class="card bg-secondary shadow row">
+                <div class="card-body mb-5">
+                  <div class="row">
+                  <div class="bg-white border-0 d-flex align-items-center col-xl-4 col-md-12 col-sm-12 mx-1 my-1">
+                    <img src="{{prdObj.image}}" style="height: 200px;width: auto;margin:auto;">
+                  </div>
+                  <div class="col-xl-7 col-md-12 col-sm-12 mb-3">
+                    <h3>Product ID: {{prdObj.productId}}</h3>
+                    <h3>Details: {{prdObj.productDetails}}</h3>
+                    <form [formGroup]="payForm" >
+                      <div class="form-group">
+                        <div class="input-group input-group-alternative mb-3">
+                          <span class="input-group-text"><i class="fa fa-university" aria-hidden="true"></i></span>
+                          <select class="form-control" name="emiPeriod" id="emiPeriod" formControlName="emiPeriod" placeholder="Select EMI duration">
+                            <option value="3" selected>3 Months</option>
+                            <option value="6">6 Months</option>
+                            <option value="9">9 Months</option>
+                          </select>
+                        </div>
                       </div>
-                    </div>
-                    <h3>Emi Starting From: <span >{{prdObj.price}}</span></h3>
-
-                    <div class="text-center">
+                      <h3>Amount Billable: <span >{{prdObj.price}}</span></h3>
+                      <h3>Emi Distribution:</h3><br>
+                      <table class="table table-bordered" style="color:black;">
+                          <thead>
+                            <th style="font-size: 20px;font-weight:bold;">Months</th>
+                            <th style="font-size: 20px;font-weight:bold;">EMI per month</th>
+                            <th style="font-size: 20px;font-weight:bold;">Total</th>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td style="font-size: 15px;">3</td>
+                            <td style="font-size: 15px;">&#8377; {{prdObj.price/3 | number:'1.0-0'}}</td>
+                            <td style="font-size: 15px;">&#8377; {{prdObj.price | number:'1.0-0'}}</td>
+                          </tr>
+                          <tr>
+                            <td style="font-size: 15px;">6</td>
+                            <td style="font-size: 15px;">&#8377; {{prdObj.price/6 | number:'1.0-0'}}</td>
+                            <td style="font-size: 15px;">&#8377; {{prdObj.price | number:'1.0-0'}}</td>
+                          </tr>
+                          <tr>
+                            <td style="font-size: 15px;">9</td>
+                            <td style="font-size: 15px;">&#8377; {{prdObj.price/9 | number:'1.0-0'}}</td>
+                            <td style="font-size: 15px;">&#8377; {{prdObj.price | number:'1.0-0'}}</td>
+                          </tr>
+                          <tr>
+                            <td style="font-size: 15px;">12</td>
+                            <td style="font-size: 15px;">&#8377; {{prdObj.price/12 | number:'1.0-0'}}</td>
+                            <td style="font-size: 15px;">&#8377; {{prdObj.price | number:'1.0-0'}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
                       <button class="btn btn-primary my-4" (click)="showAlert()">Pay Now</button>
-                    </div>
-                  </form>
-
+                    </form>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

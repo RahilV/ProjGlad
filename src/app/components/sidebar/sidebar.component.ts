@@ -12,7 +12,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/user-profile', title: 'User profile',  icon:'ni-single-02 text-yellow', class: '' },
     { path: '/login', title: 'Login',  icon:'ni-key-25 text-info', class: '' },
     { path: '/register', title: 'Register',  icon:'ni-circle-08 text-pink', class: '' },
-    { path: '/test', title: 'Test',  icon:'ni-circle-08 text-pink', class: '' },
+    { path: '/products', title: 'Test',  icon:'ni-circle-08 text-pink', class: '' },
     { path: '/userProducts', title: 'User Prodcuts',  icon:'ni-circle-08 text-pink', class: '' },
     { path: '/logout', title: 'Logout',  icon:'ni-circle-08 text-pink', class: '' }
 ];

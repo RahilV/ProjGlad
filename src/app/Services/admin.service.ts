@@ -14,4 +14,13 @@ export class AdminService {
   {
     return this.http.get<Consumer[]>(this.base_url+'consumers');
   }
+  public getAllNonValidConsumers()
+  {
+    return this.http.get<Consumer[]>(this.base_url+'nonvalid_consumers');
+  }
+
+  public validateConsumer(user)
+  {
+    return this.http.post(this.base_url+'validateConsumers',user);
+  }
 }

@@ -1,30 +1,30 @@
 <app-sidebar></app-sidebar>
 <div class="main-content">
     <app-navbar></app-navbar>
-    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="height: 150px; background-size: cover; background-position: center top;">
+    <div class="header bg-gradient-danger pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="height: 150px; background-size: cover; background-position: center top;">
         <!-- Mask -->
-        <span class="mask opacity-8" style="background-color:#20bf55;background-image:linear-gradient(315deg, #20bf55 0%, #01baef 74%);"></span>
         <!-- Header container -->
         <div class="container-fluid align-items-center">
           <div class="row mt-3">
-            <div class="col-lg-7 col-md-10 mt-6">
-              <h1 class="display-2 text-white">Hello Jesse</h1>
+            <div class="col-lg-12 col-md-10 mt-6">
+              <h1 class="text-white" style="font-size: 3vw;">Get Your Favorite Products On <b>NO COST EMI</b> </h1>
             </div>
           </div>
         </div>
       </div>
 
     <div class="container-fluid" style="margin-top: 3%;">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-5">
           <div class="col mb-4" *ngFor="let item of prdList">
             <div class="card bg-secondary shadow">
               <div class="card-header bg-white border-0 d-flex align-items-center">
-                <img src="{{item.image}}"  height="100px" width="auto">
+                <img src="{{item.image}}"  height="100px" width="auto" style="margin:auto">
               </div>
-              <div class="card-body">
-                <h3>{{item.productId}}</h3>
+              <div class="card-body text-center">
                 <h3>{{item.productName}}</h3>
-                <button class="btn btn-primary my-4" [routerLink]="['/test',item.productId]" routerLinkActive="router-link-active">BUY PRODUCT</button>
+                <h3><span>&#8377;</span>{{item.price}}</h3>
+                
+                <button class="btn btn-primary my-4 text-center" [routerLink]="['/products',item.productId]" routerLinkActive="router-link-active">BUY PRODUCT</button>
               </div>
             </div>
           </div>

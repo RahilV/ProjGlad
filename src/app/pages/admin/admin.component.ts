@@ -12,6 +12,7 @@ export class AdminComponent implements OnInit {
 
   consumerList:Consumer[];
   admin;
+  user;
   constructor(private adminService:AdminService,private router:Router) { }
 
   ngOnInit(): void {
@@ -26,8 +27,19 @@ export class AdminComponent implements OnInit {
     }
   }
   loadData() {
-    this.adminService.getAllConsumers().subscribe(data => {
+    this.adminService.getAllNonValidConsumers().subscribe(data => {
         this.consumerList = data;
     });
+  }
+
+  validateConsumer(userId)
+  {
+    this.user={
+      "userId" : userId
+    }
+    this.adminService.validateConsumer(this.user).subscribe(data => {
+      //this.consumerList = data;
+      this.router.navigate(['/admin'])
+  });
   }
 }

@@ -14,7 +14,8 @@ import { Products } from './test';
 export class TestComponent implements OnInit {
 
   prdList:Products[];
-  constructor(private testService: TestService) {}
+  constructor(private testService: TestService) {
+  }
 
   
 

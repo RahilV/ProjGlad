@@ -1,10 +1,36 @@
-<div class="container-fluid" style="margin-top: 3%;">
+<app-sidebar></app-sidebar>
+<div class="main-content">
+    <app-navbar></app-navbar>
+    <div class="header bg-gradient-danger pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="height: 150px; background-size: cover; background-position: center top;">
+        <!-- Header container -->
+        <div class="container-fluid align-items-center">
+          <div class="row mt-3">
+            <div class="col-lg-7 col-md-10 mt-6">
+              <h1 class="display-2 text-white">{{prdObj.transactionId}}</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+<!--<div class="container-fluid" style="margin-top: 3%;">
     <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-2">
       <div class="col mb-4">
         <div class="card bg-secondary shadow">
           <div class="card-header bg-white border-0 d-flex align-items-center">
             <img src="assets/img/theme/team-4-800x800.jpg" class="rounded-circle" height="100px" width="auto">
-          </div>
+          </div>-->
+
+          <div class="container-fluid" style="margin-top: 3%;">
+            <div class="row row-cols-1">
+              <div class="col">
+                <div class="card bg-secondary shadow row">
+                    <div class="card-body mb-5">
+                      <div class="row">
+                      <div class="bg-white border-0 d-flex align-items-center col-xl-4 col-md-12 col-sm-12 mx-1 my-1">
+                        <img src="assets/img/theme/team-4-800x800.jpg" style="height: 200px;width: auto;margin:auto;">
+                      </div>
           <div class="card-body">
             <h3>{{prdObj.productPurchasedId}}</h3>
             <!-- <h3>{{prdObj.productId.productDetails}}</h3> -->
@@ -12,8 +38,24 @@
         </div>
     </div>
 </div>
-
-<!-- <div class="container-fluid" style="margin-top: 3%;">
+<h3>Transaction Details:</h3><br>
+                      <table class="table table-bordered" style="color:black;">
+                          <thead>
+                            <th style="font-size: 20px;font-weight:bold;">Transaction ID</th>
+                            <th style="font-size: 20px;font-weight:bold;">Transaction Date</th>
+                            <th style="font-size: 20px;font-weight:bold;">Amount</th>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let t of transactionsList">
+                            
+                            <td style="font-size: 15px;"> {{t.transactionId}}</td>
+                            <td style="font-size: 15px;"> {{t.transactionDate}}</td>
+                            <td style="font-size: 15px;"> {{t.amount}}</td>
+                          </tr>
+                          
+                        </tbody>
+                      </table>
+ <!--<div class="container-fluid" style="margin-top: 3%;">
     <div class="row">
       <div class="col mb-4">
         <div class="card bg-secondary shadow">
@@ -31,7 +73,7 @@
                 <tbody>
                     <tr *ngFor="let transaction of transactionsList">
                         <td>{{transaction.transactionId}}</td>
-                        <td>{{transaction.productPurchased.productPurchasedId}}</td>
+                        <td>{{transaction.productPurchasedId.productPurchasedId}}</td>
                         <td> {{transaction.transactionDate}} </td>
                         <td> {{transaction.amount}}</td>
                     </tr>
@@ -42,3 +84,7 @@
       </div>
     </div>
 </div> -->
+<div class="container-fluid">
+  <app-footer></app-footer>
+</div>
+</div>

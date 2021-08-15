@@ -5,7 +5,6 @@ import { TestService } from 'src/app/Services/test.service';
 import { TransactionsService } from 'src/app/Services/transactions.service';
 import { UserProductsService } from 'src/app/Services/user-products.service';
 import { ProductsPurchased } from '../product-details/ProductsPurchased';
-import { Products } from '../test/test';
 import { UserProducts } from '../user-products/UserProducts';
 
 @Component({
@@ -17,23 +16,32 @@ export class UserProductDetailsComponent implements OnInit {
   
   transactionsList:Transactions[];
   public prdObj:ProductsPurchased;
-  prdId:any;
+  
+  productPurchasedId:any;
    
-  constructor(private userProductsService: UserProductsService,private routing:ActivatedRoute) {
-    this.prdId=this.routing.snapshot.paramMap.get('id');
+  constructor(private userProductsService: UserProductsService,private routing:ActivatedRoute, private transactionService: TransactionsService) {
+    this.productPurchasedId=this.routing.snapshot.paramMap.get('id');
   }
   
-    ngOnInit(): void {
-      this.onSubmit();
-    }
-    onSubmit() {
-      this.userProductsService.getPrdById(this.prdId).subscribe(data => {
-        this.prdObj=data;
-        console.log(this.prdObj.productId);
-      });
-    }
+  ngOnInit(): void {
+    this.loadData();
   }
+  loadData() {
+    this.userProductsService.getPrdById(this.productPurchasedId).subscribe(data => {
+      this.prdObj=data;
+    
+      console.log(this.prdObj.productId);
+    });
 
-  // this.transactionsService.getAllTransactions().subscribe(data=> {
-  //   this.transactionsList = data;
-  // })
+      this.transactionService.getTransactionsById(this.productPurchasedId).subscribe(data => { 
+        this.transactionsList=data;
+
+        //console.log(this.prdObj.productPurchasedId);
+        //console.log(this.productPurchasedId);
+        
+      
+      });
+
+
+  }
+} 
