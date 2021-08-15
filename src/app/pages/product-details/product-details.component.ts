@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Products } from 'src/app/Models/products';
 import { ProductDetailsService } from 'src/app/Services/product-details.service';
@@ -29,7 +29,7 @@ export class ProductDetailsComponent implements OnInit {
     this.loadData();
 
     this.payForm = this.formBuilder.group({
-      emiPeriod: [''],      
+      emiPeriod: ['',Validators.required],      
     });
 
   }
