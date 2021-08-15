@@ -16,19 +16,32 @@ export class UserProductDetailsComponent implements OnInit {
   
   transactionsList:Transactions[];
   public prdObj:ProductsPurchased;
-  prdId:any;
+  
+  productPurchasedId:any;
    
-  constructor(private userProductsService: UserProductsService,private routing:ActivatedRoute) {
-    this.prdId=this.routing.snapshot.paramMap.get('id');
+  constructor(private userProductsService: UserProductsService,private routing:ActivatedRoute, private transactionService: TransactionsService) {
+    this.productPurchasedId=this.routing.snapshot.paramMap.get('id');
   }
   
   ngOnInit(): void {
-    this.onSubmit();
+    this.loadData();
   }
-  onSubmit() {
-    this.userProductsService.getPrdById(this.prdId).subscribe(data => {
+  loadData() {
+    this.userProductsService.getPrdById(this.productPurchasedId).subscribe(data => {
       this.prdObj=data;
+    
       console.log(this.prdObj.productId);
     });
+
+      this.transactionService.getTransactionsById(this.productPurchasedId).subscribe(data => { 
+        this.transactionsList=data;
+
+        //console.log(this.prdObj.productPurchasedId);
+        //console.log(this.productPurchasedId);
+        
+      
+      });
+
+
   }
 } 

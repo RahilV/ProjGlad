@@ -11,7 +11,16 @@ export class TransactionsService {
   constructor(private http: HttpClient) { }
 
   getAllTransactions(){
-    console.log(this.http.get<any[]>(this.baseUrl+'/transaction'));
-   return  this.http.get<any[]>(this.baseUrl+'/transaction');
+    console.log(this.http.get<any[]>(this.baseUrl+'/transactions'));
+   return  this.http.get<any[]>(this.baseUrl+'/transactions');
   }
+
+  getTransactionsById(id:number){
+  console.log(this.http.get<Transactions[]>(this.baseUrl+'/transactionsById/'+id));
+   return  this.http.get<Transactions[]>(this.baseUrl+'/transactionsById/'+id);
+
+  }
+
+
 }
+
