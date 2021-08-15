@@ -25,6 +25,7 @@ import { LogoutComponent } from './pages/logout/logout.component';
 import { AddProductComponent } from './Pages/add-product/add-product.component';
 import { TestComponent } from './pages/test/test.component';
 import { DataTablesModule } from 'angular-datatables';
+import { ConsumersComponent } from './pages/admin/consumers/consumers.component';
 
 @NgModule({
   imports: [
@@ -53,7 +54,8 @@ import { DataTablesModule } from 'angular-datatables';
     AdminComponent,
     UserProductDetailsComponent,
     LogoutComponent,
-    AddProductComponent
+    AddProductComponent,
+    ConsumersComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

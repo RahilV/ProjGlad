@@ -7,7 +7,7 @@
         <div class="container-fluid align-items-center">
             <div class="row mt-3">
                 <div class="col-lg-7 col-md-10 mt-6">
-                <h1 class="display-2 text-white">Hello, {{admin}}</h1>
+                <h1 class="display-2 text-white">Consumers List</h1>
                 </div>
             </div>
         </div>
@@ -17,7 +17,7 @@
           <div class="col mb-4">
             <div class="card bg-secondary shadow">
               <div class="card-header bg-white border-0 d-flex align-items-center">
-                <h3>Consumers To Be Validated</h3>
+                <h3>Consumers List</h3>
               </div>
               <div class="card-body">
                 <table class="table table-responsive table-striped table-bordered">
@@ -30,7 +30,7 @@
                         <th class="text-white">CARD TYPE</th>
                         <th class="text-white">SAVINGS ACCOUNT NUMBER</th>
                         <th class="text-white">IFSC CODE</th>
-                        <th class="text-white">VIEW</th>
+                        <th class="text-white">ACTIONS</th>
                     </thead>
                     <tbody>
                         <tr *ngFor="let consumer of consumerList">
@@ -42,7 +42,10 @@
                             <td style="font-weight: bold;"> {{consumer.cardNo.cardTypeName}} </td>
                             <td style="font-weight: bold;"> {{consumer.savingAccNo}} </td>
                             <td style="font-weight: bold;"> {{consumer.ifscCode}} </td>
-                            <td style="font-weight: bold;"><button class="btn btn-warning" (click)="validateConsumer(consumer.user.userId)">VALIDATE</button></td>
+                            <td style="font-weight: bold;">
+                                <button class="btn btn-info" style="font-size:18px;" [routerLink]="['/user-profile',consumer.user.userId]" routerLinkActive="router-link-active" ><i class="fa fa-pen" aria-hidden="true"></i></button>
+                                <button class="btn btn-danger" style="font-size:18px;" (click)="showAlert(consumer.user.userId)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
