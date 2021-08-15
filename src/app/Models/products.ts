@@ -3,4 +3,5 @@ export class Products {
     productName:string="";
     price:number=0;
     productDetails:string="";
+    eligibilityCriteria:string="";
 }

@@ -23,6 +23,7 @@ import { ProductDetailsComponent } from './Pages/product-details/product-details
 import { AdminComponent } from './pages/admin/admin.component';
 import { UserProductDetailsComponent } from './pages/user-product-details/user-product-details.component';
 import { LogoutComponent } from './pages/logout/logout.component';
+import { AddProductComponent } from './Pages/add-product/add-product.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { LogoutComponent } from './pages/logout/logout.component';
     ProductDetailsComponent,
     AdminComponent,
     UserProductDetailsComponent,
-    LogoutComponent
+    LogoutComponent,
+    AddProductComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
