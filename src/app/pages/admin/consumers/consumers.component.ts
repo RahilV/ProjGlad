@@ -38,9 +38,9 @@ export class ConsumersComponent implements OnInit {
       "userId":consumer
     }
     this.adminService.deleteConsumer(cons).subscribe((data) => {
-      this.adminService.getAllConsumers().subscribe(data => {
+      /*this.adminService.getAllConsumers().subscribe(data => {
         this.consumerList = data;
-      });
+      });*/
     });
     
     

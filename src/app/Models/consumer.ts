@@ -8,8 +8,8 @@ export class Consumer {
     phoneNo:number;
     address:String;
     card:EmiCard;
-    savingsAccountNumber:number;
     ifscCode:String;
     isValidated:boolean;
     balance:number;
+    savingAccNo: number;
 }

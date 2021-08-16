@@ -31,13 +31,13 @@ export class UserProfileComponent implements OnInit {
       fName: ['',Validators.required],
       lName: ['',Validators.required],
       email: ['',[Validators.required,Validators.email]],
-      phoneNo: [,[Validators.required,Validators.minLength(10),Validators.maxLength(10),Validators.pattern("[0-9]{10}")]],
+      phoneNo: ['',[Validators.required,Validators.minLength(10),Validators.maxLength(10),Validators.pattern("[0-9]{10}")]],
       address: ['',Validators.required],
       userName: ['',Validators.required],
-      bank: [''],
+      bank: [],
       savingsAccountNumber: ['',Validators.required],
       ifscCode: ['',Validators.required],
-      cardType: ['']
+      cardTypeName: []
     });
     
   }
@@ -46,16 +46,17 @@ export class UserProfileComponent implements OnInit {
   {
     this.adminService.getConsumerById(this.userId).subscribe((data:any) =>{
       this.consumer = data;
-      this.addForm.get('fName').setValue(this.consumer[0].fName);
-      this.addForm.get('lName').setValue(this.consumer[0].lName);
-      this.addForm.get('email').setValue(this.consumer[0].user.email);
-      this.addForm.get('phoneNo').setValue(this.consumer[0].phoneNo);
-      this.addForm.get('address').setValue(this.consumer[0].address);
-      this.addForm.get('userName').setValue(this.consumer[0].user.userName);
+      console.log(this.consumer);
+      this.addForm.get('fName').setValue(this.consumer.fName);
+      this.addForm.get('lName').setValue(this.consumer.lName);
+      this.addForm.get('email').setValue(this.consumer.user.email);
+      this.addForm.get('phoneNo').setValue(this.consumer.phoneNo);
+      this.addForm.get('address').setValue(this.consumer.address);
+      this.addForm.get('userName').setValue(this.consumer.user.userName);
       //this.addForm.get('bank').setValue(this.consumer[0].bank);
-      this.addForm.get('savingsAccountNumber').setValue(this.consumer[0].savingAccNo);
-      this.addForm.get('ifscCode').setValue(this.consumer[0].ifscCode);
-      this.addForm.get('cardType').setValue(this.consumer[0].card.cardTypeName);
+      this.addForm.get('savingsAccountNumber').setValue(this.consumer.savingAccNo);
+      this.addForm.get('ifscCode').setValue(this.consumer.ifscCode);
+      this.addForm.get('cardTypeName').setValue(this.consumer.card.cardTypeName);
     });
   }
 
@@ -65,8 +66,8 @@ export class UserProfileComponent implements OnInit {
     if (this.addForm.invalid) {
       return;
     }
-    console.log(this.addForm.value.email);
-    if(this.addForm.value.cardType === "Gold")
+    //console.log(this.addForm.value.email);
+    if(this.addForm.value.cardTypeName === "Gold")
     {
       this.today.setFullYear(this.today.getFullYear() + 5);
       this.limit = 50000;
@@ -94,14 +95,14 @@ export class UserProfileComponent implements OnInit {
         "phoneNo": this.addForm.value.phoneNo,
         "address": this.addForm.value.address,
         "card": {
-            "cardTypeName": this.addForm.value.cardType,
+            "cardTypeName": this.addForm.value.cardTypeName,
             "cardLimit": this.limit,
             "Validity": this.today
         },
         "savingAccNo": this.addForm.value.savingsAccountNumber,
         "ifscCode": this.addForm.value.ifscCode,
         "isValidated": 'Y',
-        "balance": 0
+        "balance": this.limit
       };
 
       console.log(this.newConsumerJSON);

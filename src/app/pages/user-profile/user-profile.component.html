@@ -9,7 +9,6 @@
     <div class="row">
       <div class="col-lg-12 col-md-10">
         <h1 class="text-white">Edit Consumer Details</h1>
-        <p class="text-white mt-0 mb-5" *ngFor="let c of consumer">{{c.fName}} {{c.lName}}, {{c.user.userId}}</p>
       </div>
     </div>
   </div>
@@ -27,7 +26,7 @@
         </div>
         <div class="card-body">
           <form [formGroup]="addForm"  (ngSubmit)="onSubmit()">
-            <div class="row" *ngFor="let c of consumer">
+            <div class="row">
               <div class="form-group col-xl-6 col-md-12" >
                 <div class="input-group input-group-alternative mb-3">
                   <div class="input-group-prepend">
@@ -169,7 +168,7 @@
                 <div class="col-xl-3 col-md-6 col-sm-12 pt-3">
                   <div class="custom-control custom-radio mb-3">
                     <input class="custom-control-input" name="cardType" type="radio" id="gold" value="Gold"
-                      formControlName="cardType">
+                      formControlName="cardTypeName">
                     <label class="custom-control-label" for="gold">Gold</label>
 
                   </div>
@@ -177,7 +176,7 @@
                 <div class="col-xl-3 col-md-6 col-sm-12 pt-3">
                   <div class="custom-control custom-radio mb-3">
                     <input class="custom-control-input" name="cardType" type="radio" id="titanium" value="Titanium"
-                      formControlName="cardType">
+                      formControlName="cardTypeName">
                     <label class="custom-control-label" for="titanium">Titanium</label>
                   </div>
                 </div>

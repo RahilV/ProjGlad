@@ -27,12 +27,13 @@ export class AdminService {
 
   public deleteConsumer(userId):any
   {
-    return this.http.post(this.base_url+'deleteConsumer/',userId);
+    return this.http.post(this.base_url+'deleteConsumer',userId);
   }
 
   getConsumerById(consumerId)
   {
-    return this.http.get<Consumer>(this.base_url+'consumers/',consumerId)
+    console.log(this.http.get<Consumer>(this.base_url+'consumer/'+consumerId));
+    return this.http.get<Consumer>(this.base_url+'consumer/'+consumerId)
   }
 
   editConsumer(consumer:Consumer)

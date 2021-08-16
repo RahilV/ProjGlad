@@ -5,7 +5,6 @@ export class Users {
     //userId:number;
     userType:UserTypes;
     userName:String;
-    userEmail:String;
+    email:String;
     userPassword:String;
-
 }

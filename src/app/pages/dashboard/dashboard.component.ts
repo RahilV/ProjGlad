@@ -80,7 +80,7 @@ export class DashboardComponent implements OnInit {
   {
     this.consumerService.getConsumerById(this.userId).subscribe((data:any)=>{
       this.userDetails=data;
-      console.log(this.userDetails.card.cardNo)
+      // console.log(this.userDetails.card.cardNo)
     });
   }
 }
