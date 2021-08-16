@@ -13,7 +13,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/login', title: 'Login',  icon:'ni-key-25 text-info', class: '' },
     { path: '/register', title: 'Register',  icon:'ni-circle-08 text-pink', class: '' },
     { path: '/products', title: 'Products',  icon:'ni-circle-08 text-pink', class: '' },
-    { path: '/userProducts', title: 'User Prodcuts',  icon:'ni-circle-08 text-pink', class: '' },
+    { path: '/userProducts', title: 'User Products',  icon:'ni-circle-08 text-pink', class: '' },
     { path: '/logout', title: 'Logout',  icon:'ni-circle-08 text-pink', class: '' }
 ];
 export const adminRoutes: RouteInfo[] = [
