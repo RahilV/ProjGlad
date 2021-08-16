@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Products } from 'src/app/Models/products';
 import { TransactionsService } from 'src/app/Services/transactions.service';
 import { UserProductsService } from 'src/app/Services/user-products.service';
 import { UserProducts } from './UserProducts';
@@ -15,6 +16,7 @@ export class UserProductsComponent implements OnInit {
   userPrdList:any;
   prdId:any;
   userId:number;
+  prdObj:Products;
   constructor(private userProductService: UserProductsService) {
     this.userId = Number(sessionStorage.getItem('userId'));
   }
