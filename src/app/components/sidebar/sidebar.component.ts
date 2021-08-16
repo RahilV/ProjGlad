@@ -17,7 +17,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/logout', title: 'Logout',  icon:'ni-circle-08 text-pink', class: '' }
 ];
 export const adminRoutes: RouteInfo[] = [
-    { path: '/dashboard', title: 'Consumers List',  icon: 'ni-circle-08 text-pink', class: '' },
+    { path: '/consumers', title: 'Consumers',  icon: 'ni-circle-08 text-pink', class: '' },
+    { path: '/validateConsumers', title: 'Validate Consumers',  icon: 'ni-circle-08 text-pink', class: '' },
     { path: '/logout', title: 'Logout',  icon:'ni-circle-08 text-pink', class: '' },
     { path: '/addProduct', title: 'Add Product',  icon:'ni-circle-08 text-pink', class: '' }
 ];

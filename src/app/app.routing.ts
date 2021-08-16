@@ -18,12 +18,13 @@ import { LogoutComponent } from './pages/logout/logout.component';
 import { AddProductComponent } from './Pages/add-product/add-product.component';
 import { TestComponent } from './pages/test/test.component';
 import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
+import { ConsumersComponent } from './pages/admin/consumers/consumers.component';
 
 const routes: Routes =[
-  { path: '',      component: DashboardComponent },
-  { path: 'dashboard',      component: DashboardComponent },
-  { path: 'consumer',      component: DashboardComponent },
-  { path: 'user-profile',   component: UserProfileComponent },
+  { path: '', component: DashboardComponent },
+  { path: 'validateConsumers', component: DashboardComponent },
+  { path: 'consumer', component: DashboardComponent },
+  { path: 'user-profile/:id', component: UserProfileComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'products', component: TestComponent },
@@ -33,10 +34,11 @@ const routes: Routes =[
   { path: 'userProducts', component: UserProductsComponent },
   { path: 'products/:id', component: ProductDetailsComponent },
   { path: 'admin',component: AdminComponent},
+  { path: 'consumers',component: ConsumersComponent},
   { path: 'userProducts/:id',component:UserProductDetailsComponent},
   { path: 'logout',component:LogoutComponent },
-  {path:'addProduct',component:AddProductComponent},
   {path:'terms',component:TermsConditionsComponent},
+  { path: 'addProduct',component:AddProductComponent},
   { path: '**'}
   
 ];

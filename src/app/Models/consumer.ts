@@ -3,8 +3,8 @@ import { Users } from "./users";
 
 export class Consumer {
     user:Users;
-    fname:String;
-    lname:String;
+    fName:String;
+    lName:String;
     phoneNo:number;
     address:String;
     card:EmiCard;

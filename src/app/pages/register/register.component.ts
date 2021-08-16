@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ConfirmedValidator } from 'src/app/Models/confirmedvalidator';
 import { Consumer } from 'src/app/Models/consumer';
 import { UserTypes } from 'src/app/Models/user-types';
 import { ConsumerService } from 'src/app/Services/consumer.service';
@@ -20,21 +21,21 @@ export class RegisterComponent implements OnInit {
   validity = new Date();
   ngOnInit() {
     this.addForm = this.formBuilder.group({
-      fName: [''],
-      lName: [''],
-      email: [''],
-      phoneNo: [],
-      dateOfBirth: [],
-      address: [''],
-      userName: [''],
-      password: [''],
-      confirmPassword: [''],
+      fName: ['',Validators.required],
+      lName: ['',Validators.required],
+      email: ['',[Validators.required,Validators.email]],
+      phoneNo: [,[Validators.required,Validators.minLength(10),Validators.maxLength(10),Validators.pattern("[0-9]{10}")]],
+      dateOfBirth: ['',Validators.required],
+      address: ['',Validators.required],
+      userName: ['',Validators.required],
+      password: ['',[Validators.required]],
+      confirmPassword: ['',[Validators.required]],
       bank: [''],
-      savingsAccountNumber: [''],
-      ifscCode: [''],
+      savingsAccountNumber: ['',Validators.required],
+      ifscCode: ['',Validators.required],
       cardType: [''],
       cardLimit: [''],
-      cardValidity: new Date(),
+      cardValidity: new Date()},{validator:ConfirmedValidator('password','confirmPassword')
     });
   }
 

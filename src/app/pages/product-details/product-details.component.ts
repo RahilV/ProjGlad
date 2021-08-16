@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { data } from 'jquery';
+import { Consumer } from 'src/app/Models/consumer';
 import { Products } from 'src/app/Models/products';
+import { ConsumerService } from 'src/app/Services/consumer.service';
 import { ProductDetailsService } from 'src/app/Services/product-details.service';
 import { TestService } from 'src/app/Services/test.service';
 import { TransactionsService } from 'src/app/Services/transactions.service';
@@ -20,9 +23,13 @@ export class ProductDetailsComponent implements OnInit {
   payForm: FormGroup;
   submitted = false;
   prdObj:Products;
+
+  public cs:Consumer;
+
+  userId=Number(sessionStorage.getItem('userId'));
   
   productId:any;
-  constructor(private formBuilder:FormBuilder, private testService: TestService, private routing: ActivatedRoute, private productPurchased:ProductDetailsService) { 
+  constructor(private formBuilder:FormBuilder, private testService: TestService, private routing: ActivatedRoute, private productPurchased:ProductDetailsService, private consumerService:ConsumerService) { 
     this.productId=this.routing.snapshot.paramMap.get("id");
   }
 
@@ -30,7 +37,7 @@ export class ProductDetailsComponent implements OnInit {
     this.loadData();
 
     this.payForm = this.formBuilder.group({
-      emiPeriod: [''],      
+      emiPeriod: ['',Validators.required],      
     });
 
   }
@@ -38,6 +45,9 @@ export class ProductDetailsComponent implements OnInit {
     this.testService.getProductById(this.productId).subscribe((data:any)=>{
         this.prdObj=data;
       });
+
+      console.log(this.consumerService.getConsumerById(this.userId).subscribe((data:any)=>{this.cs=data;}));
+
   }
 
   onSubmit() 
@@ -58,15 +68,16 @@ export class ProductDetailsComponent implements OnInit {
         },
         "amountBillable": this.prdObj.price,
         "amountPayed": this.prdObj.price/this.payForm.value.emiPeriod,
-        "transactionId": 10000023,
+        "transactionId": 10000025,
         "emiPeriod":this.payForm.value.emiPeriod
     }
     console.log(this.newBill);
     this.productPurchased.buyProduct(this.newBill).subscribe(data =>{ this.newBill = data; });
+    
   }
 
 showAlert(){
-    if (confirm("Are you sure? First EMi of"+this.prdObj.price/this.payForm.value.emiPeriod+" will be paid")) {
+    if (confirm("Are you sure? First EMi of "+this.prdObj.price/this.payForm.value.emiPeriod+" will be paid")) {
     this.onSubmit();
     }
   }
