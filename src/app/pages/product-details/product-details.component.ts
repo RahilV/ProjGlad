@@ -46,6 +46,8 @@ export class ProductDetailsComponent implements OnInit {
         this.prdObj=data;
       });
 
+      console.log(this.productId);
+      
       console.log(this.consumerService.getConsumerById(this.userId).subscribe((data:any)=>{this.cs=data;}));
 
   }
@@ -78,6 +80,7 @@ export class ProductDetailsComponent implements OnInit {
     console.log(this.newBill);
     this.productPurchased.buyProduct(this.newBill).subscribe(data =>{ this.newBill = data; });
     
+
   }
 
 showAlert(){
