@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-  import { Router } from '@angular/router';
+import { Router } from '@angular/router';
   import Chart from 'chart.js';
+import { Consumer } from 'src/app/Models/consumer';
 import { UserProductsService } from 'src/app/Services/user-products.service';
-
 // core components
 import {
   chartOptions,
@@ -10,6 +10,7 @@ import {
   chartExample1,
   chartExample2
 } from "../../variables/charts";
+import { ConsumerService } from 'src/app/Services/consumer.service';
 
 
 @Component({
@@ -37,10 +38,10 @@ export class DashboardComponent implements OnInit {
   userPrdList:any;
   prdId:any;
   userId:number;
-  
+  userDetails:Consumer;
   dtOptions: DataTables.Settings = {};
     
-  constructor(private router: Router,private userProductService: UserProductsService) {
+  constructor(private router: Router,private userProductService: UserProductsService,private consumerService:ConsumerService) {
     this.userId = Number(sessionStorage.getItem('userId'));
     this.dtOptions = {
       pagingType: 'full_numbers',
@@ -65,6 +66,7 @@ export class DashboardComponent implements OnInit {
     }
 
     this.loadData();
+    this.getConsumerData();
   }
 
   loadData()
@@ -73,8 +75,12 @@ export class DashboardComponent implements OnInit {
       this.userPrdList = data;
       console.log(this.userPrdList);
     });
-
-    
   }
-
+  getConsumerData()
+  {
+    this.consumerService.getConsumerById(this.userId).subscribe((data:any)=>{
+      this.userDetails=data;
+      console.log(this.userDetails.card.cardNo)
+    });
+  }
 }

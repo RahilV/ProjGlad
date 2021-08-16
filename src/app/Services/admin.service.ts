@@ -32,7 +32,7 @@ export class AdminService {
 
   getConsumerById(consumerId)
   {
-    return this.http.get<any>(this.base_url+'consumers/',consumerId)
+    return this.http.get<Consumer>(this.base_url+'consumers/',consumerId)
   }
 
   editConsumer(consumer:Consumer)

@@ -25,7 +25,6 @@ export class RegisterComponent implements OnInit {
       lName: ['',Validators.required],
       email: ['',[Validators.required,Validators.email]],
       phoneNo: [,[Validators.required,Validators.minLength(10),Validators.maxLength(10),Validators.pattern("[0-9]{10}")]],
-      dateOfBirth: ['',Validators.required],
       address: ['',Validators.required],
       userName: ['',Validators.required],
       password: ['',[Validators.required]],
@@ -80,7 +79,7 @@ export class RegisterComponent implements OnInit {
         "savingAccNo": this.addForm.value.savingsAccountNumber,
         "ifscCode": this.addForm.value.ifscCode,
         "isValidated": 'N',
-        "balance": this.addForm.value.balance
+        "balance": this.limit
       };
 
       console.log(this.newConsumerJSON);

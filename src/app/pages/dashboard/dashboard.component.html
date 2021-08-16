@@ -13,9 +13,13 @@
               <div class="row">
                 <div class="col">
 
-                  <span class="nav-item"style="margin-left: 10px;">
+                  <!-- <span class="nav-item"style="margin-left: 10px;">
                     <a routerLink="emiCardList" class="btn btn-primary active" role="button" routerLinkActive="active">Emi Card List</a>
-                  </span>
+                  </span> -->
+                  {{userDetails.card.cardNo}}
+                  {{userDetails.card.cardTypeName}}
+                  {{userDetails.card.cardLimit}}
+                  {{userDetails.isValidated}}
                 </div>
                 <div class="col-auto">
                   <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -79,8 +83,7 @@
             <div class="card-body">
               <div class="row">
                 <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
-                  <span class="h2 font-weight-bold mb-0">49,65%</span>
+                  <h2 class="card-title text-uppercase mb-0">{{userDetails.balance}}</h2>
                 </div>
                 <div class="col-auto">
                   <div class="icon icon-shape bg-info text-white rounded-circle shadow">
@@ -101,7 +104,7 @@
 </div>
 <div class="container-fluid mt--7">
   <div class="row">
-    <div class="col-xl-8 mb-5 mb-xl-0">
+    <div class="col-xl-12 mb-5 mb-xl-0">
       <div class="card shadow">
         <div class="card-header bg-transparent">
           <div class="row align-items-center">
@@ -117,17 +120,17 @@
             <table class="table table-bordered table-responsive-md text-black text-center" datatable [dtOptions]="dtOptions">
               <thead>
                 <tr>
-                  <th>Product Name</th>
-                  <th>Product Price</th>
-                  <th>Latest Transaction</th>
-                  <th>VIEW</th>
+                  <th style="font-size: 14px;">Product Name</th>
+                  <th style="font-size: 14px;">Product Price</th>
+                  <th style="font-size: 14px;">Latest Transaction</th>
+                  <th style="font-size: 14px;">VIEW</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let p of userPrdList">
-                  <td> {{ p.productId.productName }} </td>
-                  <td> {{ p.productId.price }} </td>
-                  <td> {{ p.transactionId }} </td>
+                  <td> {{ p.product.productName }} </td>
+                  <td> {{ p.product.price }} </td>
+                  <td> {{p.transaction.transactionDate}} </td>
                   <td> <button class="btn btn-outline-dark" [routerLink]="['/userProducts',p.productPurchasedId]" routerLinkActive="router-link-active">VIEW</button> </td>
                 </tr>
               </tbody>
@@ -136,27 +139,6 @@
         </div>
       </div>
     </div>
-    <div class="col-xl-4">
-      <div class="card shadow">
-        <div class="card-header bg-transparent">
-          <div class="row align-items-center">
-            <div class="col">
-              <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
-              <h2 class="mb-0">Total orders</h2>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <!-- Chart -->
-          <div class="chart">
-            <canvas id="chart-orders" class="chart-canvas"></canvas>
-          </div>
-        </div>  
-      </div>
-    </div>
-  <div class="row mt-5">
-  
-  </div>
 <div class="container-fluid">
   <app-footer></app-footer>
 </div>
