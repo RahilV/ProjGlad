@@ -16,9 +16,7 @@ export class TestComponent implements OnInit {
   prdList:Products[];
   constructor(private testService: TestService) {
   }
-
   
-
   ngOnInit(): void {
     this.loadData();
   }
