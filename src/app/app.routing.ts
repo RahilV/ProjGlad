@@ -17,6 +17,7 @@ import { UserProductDetailsComponent } from './pages/user-product-details/user-p
 import { LogoutComponent } from './pages/logout/logout.component';
 import { AddProductComponent } from './Pages/add-product/add-product.component';
 import { TestComponent } from './pages/test/test.component';
+import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
 import { ConsumersComponent } from './pages/admin/consumers/consumers.component';
 
 const routes: Routes =[
@@ -36,8 +37,10 @@ const routes: Routes =[
   { path: 'consumers',component: ConsumersComponent},
   { path: 'userProducts/:id',component:UserProductDetailsComponent},
   { path: 'logout',component:LogoutComponent },
+  {path:'terms',component:TermsConditionsComponent},
   { path: 'addProduct',component:AddProductComponent},
   { path: '**'}
+  
 ];
 
 @NgModule({

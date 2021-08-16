@@ -8,7 +8,7 @@
         <div class="container-fluid align-items-center">
           <div class="row mt-3">
             <div class="col-lg-7 col-md-10 mt-6">
-              <h1 class="display-2 text-white">Hello Jesse</h1>
+              <h1 class="display-2 text-white">Your Products</h1>
             </div>
           </div>
         </div>
@@ -24,6 +24,7 @@
                 <h3>{{item.productPurchasedId}}</h3>
                 <h3>{{item.userId}}</h3>
                 <h3>{{item.emiDuration}}</h3>
+                
                 <button class="btn btn-success float-right" [routerLink]="['/userProducts',item.productPurchasedId]" routerLinkActive="router-link-active">View</button>
             </div>
             </div>

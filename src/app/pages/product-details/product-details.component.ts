@@ -7,6 +7,7 @@ import { Products } from 'src/app/Models/products';
 import { ConsumerService } from 'src/app/Services/consumer.service';
 import { ProductDetailsService } from 'src/app/Services/product-details.service';
 import { TestService } from 'src/app/Services/test.service';
+import { TransactionsService } from 'src/app/Services/transactions.service';
 import { ProductsPurchased } from './ProductsPurchased';
 
 @Component({

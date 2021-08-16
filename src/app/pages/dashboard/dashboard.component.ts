@@ -11,12 +11,14 @@ import {
   chartExample2
 } from "../../variables/charts";
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  
 
   public datasets: any;
   public data: any;
@@ -35,6 +37,7 @@ export class DashboardComponent implements OnInit {
   userPrdList:any;
   prdId:any;
   userId:number;
+  
   dtOptions: DataTables.Settings = {};
     
   constructor(private router: Router,private userProductService: UserProductsService) {
@@ -70,6 +73,8 @@ export class DashboardComponent implements OnInit {
       this.userPrdList = data;
       console.log(this.userPrdList);
     });
+
+    
   }
 
 }

@@ -20,7 +20,12 @@ export class TransactionsService {
    return  this.http.get<Transactions[]>(this.baseUrl+'/transactionsById/'+id);
 
   }
+  
+  latestTransaction(id:number){
+ console.log(this.http.get<Transactions[]>(this.baseUrl+'/latestTransaction/'+id));
+ return  this.http.get<Transactions[]>(this.baseUrl+'/latestTransaction/'+id);
 
+  }
 
 }
 

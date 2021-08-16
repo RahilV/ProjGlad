@@ -27,6 +27,7 @@ import { TestComponent } from './pages/test/test.component';
 import { DataTablesModule } from 'angular-datatables';
 import { ConsumersComponent } from './pages/admin/consumers/consumers.component';
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -55,6 +56,7 @@ import { ConsumersComponent } from './pages/admin/consumers/consumers.component'
     UserProductDetailsComponent,
     LogoutComponent,
     AddProductComponent,
+    
     ConsumersComponent
   ],
   providers: [],
