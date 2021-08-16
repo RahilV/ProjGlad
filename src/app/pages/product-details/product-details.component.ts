@@ -35,14 +35,11 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (sessionStorage.getItem('userType') == "1") 
-    {
-      this.router.navigate(['admin']);
-    }
-    else 
+    if (!sessionStorage.getItem('userType')) 
     {
       this.router.navigate(['login'])
     }
+
     this.loadData();
 
     this.payForm = this.formBuilder.group({
