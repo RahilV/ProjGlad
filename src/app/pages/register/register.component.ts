@@ -71,7 +71,7 @@ export class RegisterComponent implements OnInit {
         "lName": this.addForm.value.lName,
         "phoneNo": this.addForm.value.phoneNo,
         "address": this.addForm.value.address,
-        "cardNo": {
+        "card": {
             "cardTypeName": this.addForm.value.cardType,
             "cardLimit": this.limit,
             "Validity": this.today

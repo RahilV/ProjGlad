@@ -55,7 +55,7 @@ export class UserProfileComponent implements OnInit {
       //this.addForm.get('bank').setValue(this.consumer[0].bank);
       this.addForm.get('savingsAccountNumber').setValue(this.consumer[0].savingAccNo);
       this.addForm.get('ifscCode').setValue(this.consumer[0].ifscCode);
-      this.addForm.get('cardType').setValue(this.consumer[0].cardNo.cardTypeName);
+      this.addForm.get('cardType').setValue(this.consumer[0].card.cardTypeName);
     });
   }
 
@@ -93,7 +93,7 @@ export class UserProfileComponent implements OnInit {
         "lName": this.addForm.value.lName,
         "phoneNo": this.addForm.value.phoneNo,
         "address": this.addForm.value.address,
-        "cardNo": {
+        "card": {
             "cardTypeName": this.addForm.value.cardType,
             "cardLimit": this.limit,
             "Validity": this.today
