@@ -67,7 +67,7 @@ export class ProductDetailsComponent implements OnInit {
         },
         "amountBillable": this.prdObj.price,
         "amountPayed": this.prdObj.price/this.payForm.value.emiPeriod,
-        "transactionId": 10000025,
+        "transactionId": 10000125,
         "emiPeriod":this.payForm.value.emiPeriod
     }
     console.log(this.newBill);
