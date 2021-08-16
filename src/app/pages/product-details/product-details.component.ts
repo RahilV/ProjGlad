@@ -68,7 +68,11 @@ export class ProductDetailsComponent implements OnInit {
         },
         "amountBillable": this.prdObj.price,
         "amountPayed": this.prdObj.price/this.payForm.value.emiPeriod,
-        "transactionId": 10000125,
+        "transaction": 
+        {
+            "transactionDate": "2027-07-22",
+            "amount": 2000
+        },
         "emiPeriod":this.payForm.value.emiPeriod
     }
     console.log(this.newBill);
@@ -81,6 +85,4 @@ showAlert(){
     this.onSubmit();
     }
   }
-
-
 }
