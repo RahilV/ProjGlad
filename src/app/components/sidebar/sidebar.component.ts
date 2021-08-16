@@ -18,9 +18,10 @@ export const ROUTES: RouteInfo[] = [
 ];
 export const adminRoutes: RouteInfo[] = [
     { path: '/consumers', title: 'Consumers',  icon: 'ni-circle-08 text-pink', class: '' },
-    { path: '/validateConsumers', title: 'Validate Consumers',  icon: 'ni-circle-08 text-pink', class: '' },
-    { path: '/logout', title: 'Logout',  icon:'ni-circle-08 text-pink', class: '' },
-    { path: '/addProduct', title: 'Add Product',  icon:'ni-circle-08 text-pink', class: '' }
+    { path: '/validateConsumers', title: 'Validate Consumers',  icon: 'ni-key-25 text-info', class: '' },
+    { path: '/addProduct', title: 'Add Product',  icon:'ni ni-headphones text-purple', class: '' },
+    { path: '/logout', title: 'Logout',  icon:'ni ni-user-run text-red', class: '' }
+
 ];
 
 @Component({

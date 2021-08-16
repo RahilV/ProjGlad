@@ -16,7 +16,7 @@ import { ProductsPurchased } from './ProductsPurchased';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-
+ 
   newBill;
   pp:ProductsPurchased = new ProductsPurchased();
 

@@ -16,9 +16,17 @@ export class RegisterComponent implements OnInit {
   submitted: boolean = false;
   newConsumerJSON;
   constructor(private formBuilder: FormBuilder, private router: Router, private consumerService: ConsumerService) { }
-  today = new Date();
   limit:number;
   validity = new Date();
+
+  
+  today = new Date();
+  dd = String(this.today.getDate()).padStart(2, '0');
+  mm = String(this.today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  yyyy = this.today.getFullYear()+5;
+ 
+ tt:String = this.mm + '/' + this.dd + '/' + this.yyyy;
+
   ngOnInit() {
     this.addForm = this.formBuilder.group({
       fName: ['',Validators.required],
@@ -75,12 +83,14 @@ export class RegisterComponent implements OnInit {
             "cardTypeName": this.addForm.value.cardType,
             "cardLimit": this.limit,
             "Validity": this.today
+            //validity:this.tt
         },
         "savingAccNo": this.addForm.value.savingsAccountNumber,
         "ifscCode": this.addForm.value.ifscCode,
         "isValidated": 'N',
         "balance": this.limit
       };
+
 
       console.log(this.newConsumerJSON);
       this.consumerService.createConsumer(this.newConsumerJSON).subscribe(data => {
