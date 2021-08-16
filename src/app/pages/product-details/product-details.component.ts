@@ -39,10 +39,6 @@ export class ProductDetailsComponent implements OnInit {
     {
       this.router.navigate(['admin']);
     }
-    else if (sessionStorage.getItem('userType') == "2") 
-    {
-      this.router.navigate(['consumer'])
-    }
     else 
     {
       this.router.navigate(['login'])
