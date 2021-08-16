@@ -69,4 +69,11 @@ export class LoginComponent implements OnInit, OnDestroy {
     );
     
   }
+
+  retry()
+  {
+    console.log("Retry");
+    this.addForm.reset();
+    this.error = '';
+  }
 }

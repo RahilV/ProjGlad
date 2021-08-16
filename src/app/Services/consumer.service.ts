@@ -14,4 +14,9 @@ export class ConsumerService {
     console.log("CREATE EMP");
     return this.http.post(this.base_url+'consumers',consumer);
   }
+  public getConsumerById(id:number){
+    console.log(this.http.get<Consumer>(this.base_url+'consumers/'+id));
+    return this.http.get<Consumer>(this.base_url+'consumers/'+id);
+
+  }
 }

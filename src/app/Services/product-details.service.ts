@@ -16,8 +16,8 @@ export class ProductDetailsService {
     return this.http.get<Products>(this.baseUrl + '/product/' + id);
   }
 
-buyProduct(pp: ProductsPurchased){
-  console.log(this.http.post(this.baseUrl+'/buyproduct', pp));  
-  return this.http.post(this.baseUrl+'/buyproduct', pp);
-}
+  buyProduct(pp: ProductsPurchased){
+    console.log(this.http.post(this.baseUrl+'/buyproduct', pp));  
+    return this.http.post(this.baseUrl+'/buyproduct', pp);
+  }
 }

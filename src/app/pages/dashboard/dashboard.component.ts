@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import Chart from 'chart.js';
-
+  import Chart from 'chart.js';
+import { Consumer } from 'src/app/Models/consumer';
+import { UserProductsService } from 'src/app/Services/user-products.service';
 // core components
 import {
   chartOptions,
@@ -9,6 +10,8 @@ import {
   chartExample1,
   chartExample2
 } from "../../variables/charts";
+import { ConsumerService } from 'src/app/Services/consumer.service';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -16,54 +19,68 @@ import {
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  
 
   public datasets: any;
   public data: any;
   public salesChart;
   public clicked: boolean = true;
   public clicked1: boolean = false;
+  /*
+    npm install jquery --save
+    npm install datatables.net --save
+    npm install datatables.net-dt --save
+    npm install angular-datatables --save
+    npm install @types/jquery --save-dev
+    npm install @types/datatables.net --save-dev
+  */
 
-  constructor(private router:Router) {}
+  userPrdList:any;
+  prdId:any;
+  userId:number;
+  userDetails:Consumer;
+  dtOptions: DataTables.Settings = {};
+    
+  constructor(private router: Router,private userProductService: UserProductsService,private consumerService:ConsumerService) {
+    this.userId = Number(sessionStorage.getItem('userId'));
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      processing: true
+    };
+  }
 
-  ngOnInit() {
-    if(sessionStorage.getItem('userType') == "1")
+  ngOnInit() 
+  {
+    if (sessionStorage.getItem('userType') == "1") 
     {
       this.router.navigate(['admin']);
     }
-    else{
+    else if (sessionStorage.getItem('userType') == "2") 
+    {
       this.router.navigate(['consumer'])
     }
-    this.datasets = [
-      [0, 20, 10, 30, 15, 40, 20, 60, 60],
-      [0, 20, 5, 25, 10, 30, 15, 40, 40]
-    ];
-    this.data = this.datasets[0];
+    else 
+    {
+      this.router.navigate(['login'])
+    }
 
+    this.loadData();
+    this.getConsumerData();
+  }
 
-    var chartOrders = document.getElementById('chart-orders');
-
-    parseOptions(Chart, chartOptions());
-
-
-    var ordersChart = new Chart(chartOrders, {
-      type: 'bar',
-      options: chartExample2.options,
-      data: chartExample2.data
+  loadData()
+  {
+    this.userProductService.getAllUserProducts(this.userId).subscribe(data => {
+      this.userPrdList = data;
+      console.log(this.userPrdList);
     });
-
-    var chartSales = document.getElementById('chart-sales');
-
-    this.salesChart = new Chart(chartSales, {
-			type: 'line',
-			options: chartExample1.options,
-			data: chartExample1.data
-		});
   }
-
-
-  public updateOptions() {
-    this.salesChart.data.datasets[0].data = this.data;
-    this.salesChart.update();
+  getConsumerData()
+  {
+    this.consumerService.getConsumerById(this.userId).subscribe((data:any)=>{
+      this.userDetails=data;
+      console.log(this.userDetails.card.cardNo)
+    });
   }
-
 }

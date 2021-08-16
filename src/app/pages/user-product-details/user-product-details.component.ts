@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Products } from 'src/app/Models/products';
 import { Transactions } from 'src/app/Models/Transactions';
 import { TestService } from 'src/app/Services/test.service';
 import { TransactionsService } from 'src/app/Services/transactions.service';
@@ -16,10 +17,11 @@ export class UserProductDetailsComponent implements OnInit {
   
   transactionsList:Transactions[];
   public prdObj:ProductsPurchased;
-  
+  installmentsLeft:number;
   productPurchasedId:any;
-   
-  constructor(private userProductsService: UserProductsService,private routing:ActivatedRoute, private transactionService: TransactionsService) {
+  newTransaction;
+  constructor(private userProductsService: UserProductsService,private routing:ActivatedRoute, private transactionService: TransactionsService,private router:Router,
+    private testService:TestService) {
     this.productPurchasedId=this.routing.snapshot.paramMap.get('id');
   }
   
@@ -29,19 +31,31 @@ export class UserProductDetailsComponent implements OnInit {
   loadData() {
     this.userProductsService.getPrdById(this.productPurchasedId).subscribe(data => {
       this.prdObj=data;
+      console.log(this.prdObj);
+    });
     
-      console.log(this.prdObj.productId);
+    this.transactionService.getTransactionsById(this.productPurchasedId).subscribe(data => { 
+      this.transactionsList=data;
     });
 
-      this.transactionService.getTransactionsById(this.productPurchasedId).subscribe(data => { 
-        this.transactionsList=data;
-
-        //console.log(this.prdObj.productPurchasedId);
-        //console.log(this.productPurchasedId);
-        
-      
-      });
-
-
+    this.userProductsService.installmentsLeft(this.productPurchasedId).subscribe(data => {
+      this.installmentsLeft=data;
+      console.log("INSTALLMENTS LEFT : ",this.installmentsLeft);
+    });
+    
   }
-} 
+
+  payInstallment()
+  {
+    console.log("ISKA PAY KARO",this.productPurchasedId);
+    this.newTransaction= {
+      "productPurchasedId":this.productPurchasedId,
+      "transactionDate": "2021-08-16",
+      "amount": (this.prdObj.amountBillable/this.prdObj.emiPeriod)
+    }
+    this.userProductsService.payInstallment(this.newTransaction).subscribe(data=>{
+      
+    });
+    this.router.navigate(['/userProducts']);
+  }
+}
