@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Products } from 'src/app/Models/products';
 import { ProductDetailsService } from 'src/app/Services/product-details.service';
 import { TestService } from 'src/app/Services/test.service';
+import { TransactionsService } from 'src/app/Services/transactions.service';
 import { ProductsPurchased } from './ProductsPurchased';
 
 @Component({

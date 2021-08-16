@@ -35,6 +35,10 @@ export class UserProductDetailsComponent implements OnInit {
 
       this.transactionService.getTransactionsById(this.productPurchasedId).subscribe(data => { 
         this.transactionsList=data;
+      });
+
+        this.transactionService.latestTransaction(this.productPurchasedId).subscribe(data => { 
+          this.transactionsList=data;
 
         //console.log(this.prdObj.productPurchasedId);
         //console.log(this.productPurchasedId);
@@ -44,4 +48,4 @@ export class UserProductDetailsComponent implements OnInit {
 
 
   }
-} 
+}
