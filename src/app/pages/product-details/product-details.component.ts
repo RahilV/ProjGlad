@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { data } from 'jquery';
 import { Consumer } from 'src/app/Models/consumer';
 import { Products } from 'src/app/Models/products';
@@ -29,11 +29,24 @@ export class ProductDetailsComponent implements OnInit {
   userId=Number(sessionStorage.getItem('userId'));
   
   productId:any;
-  constructor(private formBuilder:FormBuilder, private testService: TestService, private routing: ActivatedRoute, private productPurchased:ProductDetailsService, private consumerService:ConsumerService) { 
+  constructor(private formBuilder:FormBuilder, private testService: TestService, private routing: ActivatedRoute, private productPurchased:ProductDetailsService, private consumerService:ConsumerService,
+    private router:Router) { 
     this.productId=this.routing.snapshot.paramMap.get("id");
   }
 
   ngOnInit(): void {
+    if (sessionStorage.getItem('userType') == "1") 
+    {
+      this.router.navigate(['admin']);
+    }
+    else if (sessionStorage.getItem('userType') == "2") 
+    {
+      this.router.navigate(['consumer'])
+    }
+    else 
+    {
+      this.router.navigate(['login'])
+    }
     this.loadData();
 
     this.payForm = this.formBuilder.group({
@@ -60,7 +73,7 @@ export class ProductDetailsComponent implements OnInit {
     this.submitted=true;
     this.newBill={
         "userId": sessionStorage.getItem('userId'),
-        "productId": {
+        "product": {
             "productId":this.productId ,
             "productName": this.prdObj.productName,
             "productDetails": this.prdObj.productDetails,
@@ -69,11 +82,11 @@ export class ProductDetailsComponent implements OnInit {
             "eligibilityCriteria": this.prdObj.eligibilityCriteria
         },
         "amountBillable": this.prdObj.price,
-        "amountPayed": this.prdObj.price/this.payForm.value.emiPeriod,
+        "amountPayed": this.prdObj.price-(this.prdObj.price/this.payForm.value.emiPeriod),
         "transaction": 
         {
             "transactionDate": "2027-07-22",
-            "amount": 2000
+            "amount": this.prdObj.price/this.payForm.value.emiPeriod
         },
         "emiPeriod":this.payForm.value.emiPeriod
     }
@@ -84,7 +97,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
 showAlert(){
-    if (confirm("Are you sure? First EMi of "+this.prdObj.price/this.payForm.value.emiPeriod+" will be paid")) {
+    if (confirm("Are you sure? First EMi of "+Math.round(this.prdObj.price/this.payForm.value.emiPeriod)+" will be paid")) {
     this.onSubmit();
     }
   }

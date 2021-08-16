@@ -26,7 +26,7 @@
                   <div class="form-group col-xl-6 col-md-12">
                     <div class="input-group input-group-alternative mb-3">
                       <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                        <span class="input-group-text"><i class="fa fa-laptop" aria-hidden="true"></i></span>
                       </div>
                       <input class="form-control" placeholder="Product Name" type="text" id="productName" formControlName="productName">
                     </div>
@@ -34,7 +34,7 @@
                   <div class="form-group col-xl-6 col-md-12">
                     <div class="input-group input-group-alternative mb-3">
                       <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                        <span class="input-group-text"><i class="fa fa-atom" aria-hidden="true"></i></span>
                       </div>
                       <input class="form-control" placeholder="Product Details" type="text" id="productDetails" formControlName="productDetails">
                     </div>
@@ -44,7 +44,7 @@
                     
                     <div class="input-group input-group-alternative mb-3">
                       <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                        <span class="input-group-text"><i class="ni ni-money-coins"></i></span>
                       </div>
                       <input class="form-control" placeholder="Price" type="text" id="price" formControlName="price">
                     </div>
@@ -55,39 +55,27 @@
                       <span class="input-group-text"><i class="fa fa-university" aria-hidden="true"></i></span>
                       <select class="form-control" name="eligibilityCriteria" id="eligibilityCriteria" formControlName="eligibilityCriteria">
                         <option value="none">Select Eligibility Criteria</option>
-                        <option value="Product Eligibile">Product Eligibile</option>
-                        <option value="Product NotEligibile">Product NotEligibile</option>
+                        <option value="Product Eligibile">Gold</option>
+                        <option value="Product NotEligibile">Titanium</option>
                       </select>
                     </div>
                   </div>
 
-                  <!-- <div class="form-group col-xl-4 col-md-12">
-                    
-                    <div class="input-group input-group-alternative mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                      </div>
-                      <input class="form-control" placeholder="Product Image" type="text" id="image" formControlName="image">
-                      <input type="file" (change)="onFileSelected($event)">
-                      <input type="button" value="Upload" (click)="onUpload">
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-curved-next" aria-hidden="true"></i>Select Image</span>
+                      <input #imageInput 
+                      class="form-control"
+                      formControlName="image"
+                      name="path[]"
+                      id="image"
+                      type="file"
+                      accept="image/*"
+                      (change)="processFile(imageInput)">
                     </div>
-                  </div> -->
-
-                  <div>
-                  <input #imageInput 
-                  id="img"
-                  formControlName="img"
-                  type="file"
-                  accept="image/*"
-                  (change)="processFile(imageInput)">
                   </div>
-
-                      <!-- <div class="custom-control custom-control-alternative custom-checkbox col-3">
-                        <input class="custom-control-input" id="customCheckRegister" type="checkbox">
-                        <label class="custom-control-label" for="customCheckRegister">
-                          <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
-                        </label>
-                  </div> -->
+                </div>
                     <div class="col-10">
                       <button type="button" class="btn btn-primary mt-4">Reset</button>
                     </div>

@@ -23,7 +23,7 @@ export class AddProductComponent implements OnInit {
       productDetails: [''],
       price: [''],
       eligibilityCriteria: [],
-      img:[]
+      image:[]
     });
   }
   
@@ -39,7 +39,7 @@ export class AddProductComponent implements OnInit {
     "productDetails": this.addProduct.value.productDetails,
     "price": this.addProduct.value.price,
     "eligibilityCriteria": this.addProduct.value.eligibilityCriteria,
-    "image":this.addProduct.value.image
+    "image":"assets/img/theme/"+ this.addProduct.value.image
   }
 
 
@@ -50,10 +50,11 @@ export class AddProductComponent implements OnInit {
   }
 
 processFile(imageInput:any){
-  const file:File=imageInput.files[0];
-  const reader = new FileReader();
-   reader.readAsDataURL(file);
+  const file:File=imageInput.files[0].name;
+  // const reader = new FileReader();
+  //  reader.readAsDataURL(file);
 
 }
+ 
 
 }
